@@ -367,7 +367,10 @@ function parseExcel(wb){
     const reach=parseNum(g(iReach));
     const results=parseNum(g(iResults));
     const links=parseNum(g(iLinkClk));
-    const eng=parseNum(g(iEngPost));
+    // Engajamento: prioriza "Engajamentos com o post", fallback pra "Resultados"
+    // Só preenche se formato for Panfleto, Carrossel ou Virtual
+    let eng = parseNum(g(iEngPost));
+    if (!eng && results > 0) eng = results;
 
     let cpm=parseCurrency(g(iCPM));
     if(!cpm&&impr>0&&spent>0)cpm=(spent/impr)*1000;
@@ -477,13 +480,15 @@ function renderReport(data){
     const colCPM   = o==='Alcance'                    ? fmtBRL(r.cpm)   : '-';
     const colCPC   = (o==='EngLink'||o==='ConvLink')   ? fmtBRL(r.cpc)   : '-';
     const colThru  = o==='Reels'                       ? fmtBRL(r.cThru) : '-';
-    const colCInt  = o==='Engajamento'                 ? fmtBRL(r.cInt)  : '-';
+    const colCInt  = (o==='Engajamento' && fmtEng)      ? fmtBRL(r.cInt)  : '-';
     const colCConv = o==='Conversas'                   ? fmtBRL(r.cConv) : '-';
 
     // Métricas
     const colReach = (o==='Alcance'||o==='Reels')      ? fmtNum(r.reach) : '-';
     const colViews = o==='Reels'                       ? fmtNum(r.views) : '-';
-    const colEng   = o==='Engajamento'                 ? fmtNum(r.eng)   : '-';
+    // Engajamento: só preenche se formato for Panfleto, Carrossel ou Virtual
+    const fmtEng = /panfleto|carrossel|virtual/i.test(r.format);
+    const colEng   = (o==='Engajamento' && fmtEng)    ? fmtNum(r.eng)   : '-';
     const colConv  = o==='Conversas'                   ? fmtNum(r.conv)  : '-';
     const colLinks = (o==='EngLink'||o==='ConvLink')   ? fmtNum(r.links) : '-';
 
@@ -569,18 +574,19 @@ async function exportExcel(){
     lastDateKeyXl=curDateKey;
 
     const o=r.objective;
+    const fmtEngXl = /panfleto|carrossel|virtual/i.test(r.format);
     const vals=[
       r.name,r.format,r.validity||'',
       r.budget>0?r.budget:'',r.spent>0?r.spent:'',
       o==='Alcance'&&r.cpm>0?r.cpm:'',
       (o==='EngLink'||o==='ConvLink')&&r.cpc>0?r.cpc:'',
       o==='Reels'&&r.cThru>0?r.cThru:'',
-      o==='Engajamento'&&r.cInt>0?r.cInt:'',
+      (o==='Engajamento'&&fmtEngXl)&&r.cInt>0?r.cInt:'',
       o==='Conversas'&&r.cConv>0?r.cConv:'',
       '','',
       (o==='Alcance'||o==='Reels')&&r.reach>0?r.reach:'',
       o==='Reels'&&r.views>0?r.views:'',
-      o==='Engajamento'&&r.eng>0?r.eng:'',
+      (o==='Engajamento'&&fmtEngXl)&&r.eng>0?r.eng:'',
       o==='Conversas'&&r.conv>0?r.conv:'',
       (o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',
     ];
