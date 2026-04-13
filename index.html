@@ -37,7 +37,6 @@ main{max-width:1400px;margin:0 auto;padding:32px 24px}
 .instructions strong{color:#9ca3af;display:block;margin-bottom:8px}
 .instructions ul{padding-left:20px;line-height:1.8}
 .instructions code{background:#1a1a1a;padding:2px 6px;border-radius:4px;font-size:12px;color:#ff9900}
-
 #reviewArea{display:none}
 .review-card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:24px;margin-bottom:16px}
 .review-card h2{font-size:20px;font-weight:700;margin-bottom:4px}
@@ -63,22 +62,19 @@ main{max-width:1400px;margin:0 auto;padding:32px 24px}
 .review-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
 .review-stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .stat-chip{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600}
-
 .report-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .report-header h2{font-size:22px;font-weight:700}
 .report-header p{color:#9ca3af;font-size:13px;margin-top:2px}
 .table-wrap{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #000;box-shadow:0 10px 40px rgba(0,0,0,.5)}
-.table-title{background:#ff9900;color:#fff;text-align:center;padding:8px;font-weight:700;font-size:13px;letter-spacing:.5px;border-bottom:1px solid #000}
+.table-title{background:#ff9900;color:#fff;text-align:center;padding:8px;font-weight:700;font-size:15px;letter-spacing:.5px;border-bottom:1px solid #000}
 .table-scroll{overflow-x:auto}
 table.report{width:100%;border-collapse:collapse;color:#000;font-size:10.5px}
 table.report thead tr{background:#b7b7b7}
 table.report th{padding:7px 5px;font-weight:700;font-size:9.5px;text-transform:uppercase;border-right:1px solid #000;border-bottom:1px solid #000;text-align:center;white-space:nowrap;font-family:'Century Gothic',Arial}
 table.report th:first-child{text-align:left}
-table.report th.gray{background:#d9d9d9}
+table.report th.gray{background:#b7b7b7}
 table.report td{padding:6px 5px;border-right:1px solid #d1d5db;border-bottom:1px solid #d1d5db;text-align:center;background:#fff;white-space:nowrap}
 table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
-table.report td.cost-col{background:#f3f4f6;font-weight:700}
-table.report td.eng-col{background:#e5e7eb;font-weight:700}
 .legend{background:#fff;border:1px solid #000;padding:16px;margin-top:24px;color:#000;border-radius:4px}
 .legend-title{background:#ff9900;color:#fff;font-weight:700;text-align:center;padding:6px;margin:-16px -16px 16px;border-radius:4px 4px 0 0;font-size:13px;font-family:'Century Gothic',Arial}
 .legend p{font-size:13px;margin-bottom:10px;line-height:1.6}
@@ -97,7 +93,6 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
     <button class="btn btn-pdf" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF</button>
   </div>
 </header>
-
 <main id="mainContent">
   <div id="uploadArea" class="upload-wrap">
     <div class="upload-card">
@@ -116,12 +111,10 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
           <li><code>Nome - Formato - Data - Objetivo</code></li>
           <li>Objetivos: <code>ALC</code> <code>ENG</code> <code>WHATS</code> <code>VIEWS</code></li>
           <li>Modificador: <code>CLIQUE NO LINK</code> após o objetivo</li>
-          <li>Reels/Vídeo → sempre mostra ThruPlay + Alcance + Visualização</li>
         </ul>
       </div>
     </div>
   </div>
-
   <div id="reviewArea">
     <div class="review-card">
       <h2>Revisar Objetivos das Campanhas — <span id="clienteName" style="color:#ff9900"></span></h2>
@@ -139,7 +132,6 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
       </div>
     </div>
   </div>
-
   <div id="reportArea" style="display:none">
     <div class="report-header">
       <div>
@@ -158,18 +150,18 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
             <th>Validade</th>
             <th>Investimento</th>
             <th>Valor Gasto</th>
+            <th>Alcance</th>
+            <th>Engajamento</th>
+            <th>Cliques no Link</th>
+            <th>Visualização (ThruPlay)</th>
             <th class="gray">Custo por 1.000 Pessoas</th>
             <th class="gray">Custo por Cliques no Link</th>
-            <th class="gray">Custo por ThruPlay</th>
-            <th class="gray">Custo por Interação</th>
-            <th class="gray">Custo por Conversa</th>
+            <th>Custo por ThruPlay</th>
+            <th>Custo por Interação</th>
+            <th>Custo por Conversa</th>
             <th>Filtro</th>
             <th>Cidade</th>
-            <th>Alcance</th>
-            <th>Visualização</th>
-            <th style="background:#b7b7b7">Engajamento</th>
-            <th style="background:#b7b7b7">Conversas Iniciadas</th>
-            <th style="background:#b7b7b7">Cliques no Link</th>
+            <th>Conversas Iniciadas</th>
           </tr></thead>
           <tbody id="tableBody"></tbody>
         </table>
@@ -186,218 +178,151 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
     </div>
   </div>
 </main>
-
 <script>
-let campaignsData=[];
-let originalFileName='';
+var campaignsData = [];
+var originalFileName = '';
 
-const fmtBRL=v=>(typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v):'-';
-const fmtNum=v=>(typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR').format(v):'-';
+var fmtBRL = function(v) { return (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v):'-'; };
+var fmtNum = function(v) { return (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR').format(v):'-'; };
 
-function parseCurrency(v){if(typeof v==='number')return v;if(!v)return 0;return parseFloat(String(v).replace(/[^0-9,.\-]/g,'').replace(/\.(?=\d{3})/g,'').replace(',','.'))||0}
-function parseNum(v){if(typeof v==='number')return Math.round(v);if(!v)return 0;return parseInt(String(v).replace(/[^0-9]/g,''),10)||0}
+function parseCurrency(v){if(typeof v==='number')return v;if(!v)return 0;return parseFloat(String(v).replace(/[^0-9,.\-]/g,'').replace(/\.(?=\d{3})/g,'').replace(',','.'))||0;}
+function parseNum(v){if(typeof v==='number')return Math.round(v);if(!v)return 0;return parseInt(String(v).replace(/[^0-9]/g,''),10)||0;}
 function parseMetaDate(v){
   if(!v)return null;
-  if(typeof v==='number'){const d=new Date(Math.round((v-25569)*86400*1000));return isNaN(d)?null:d}
-  const s=String(v).trim();
-  let m=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
-  if(m){const d=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d)?null:d}
+  if(typeof v==='number'){var d=new Date(Math.round((v-25569)*86400*1000));return isNaN(d)?null:d;}
+  var s=String(v).trim();
+  var m=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+  if(m){var d2=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d2)?null:d2;}
   m=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})$/);
-  if(m){let yr=+m[3];if(yr<100)yr+=2000;const d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d)?null:d}
+  if(m){var yr=+m[3];if(yr<100)yr+=2000;var d3=new Date(yr,+m[2]-1,+m[1]);return isNaN(d3)?null:d3;}
   return null;
 }
-function fmtDateBR(d){if(!d)return '';return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`}
-function extractDateFromName(name){const m=(name||'').match(/(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);if(!m)return null;let yr=+m[3];if(yr<100)yr+=2000;const d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d.getTime())?null:d}
-function getIdx(headers,kws){let i=headers.findIndex(h=>kws.some(k=>h===k));if(i>=0)return i;return headers.findIndex(h=>kws.some(k=>h.includes(k)))}
+function fmtDateBR(d){if(!d)return '';return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
+function extractDateFromName(name){var m=(name||'').match(/(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);if(!m)return null;var yr=+m[3];if(yr<100)yr+=2000;var d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d.getTime())?null:d;}
+function getIdx(headers,kws){var i=headers.findIndex(function(h){return kws.some(function(k){return h===k;});});if(i>=0)return i;return headers.findIndex(function(h){return kws.some(function(k){return h.includes(k);});});}
 
-/* ══════════════════════════════════════════════════════════════════
-   FUZZY MATCH — detecta abreviações e erros de grafia
-   Usa distância de Levenshtein simplificada
-   ══════════════════════════════════════════════════════════════════ */
 function levenshtein(a,b){
-  const m=a.length,n=b.length;
-  const d=Array.from({length:m+1},(_,i)=>Array(n+1).fill(0));
-  for(let i=0;i<=m;i++)d[i][0]=i;
-  for(let j=0;j<=n;j++)d[0][j]=j;
-  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
+  var m=a.length,n=b.length;
+  var d=[];for(var i=0;i<=m;i++){d[i]=[];for(var j=0;j<=n;j++)d[i][j]=0;}
+  for(var i=0;i<=m;i++)d[i][0]=i;
+  for(var j=0;j<=n;j++)d[0][j]=j;
+  for(var i=1;i<=m;i++)for(var j=1;j<=n;j++){
     d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
   }
   return d[m][n];
 }
-
-function fuzzyMatch(word, targets, maxDist){
-  const w=word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  for(const t of targets){
-    if(w===t) return true;
-    if(w.length>=3 && t.length>=3 && levenshtein(w,t)<=maxDist) return true;
+function fuzzyMatch(word,targets,maxDist){
+  var w=word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  for(var t=0;t<targets.length;t++){
+    if(w===targets[t])return true;
+    if(w.length>=3&&targets[t].length>=3&&levenshtein(w,targets[t])<=maxDist)return true;
   }
   return false;
 }
 
-/* ══════════════════════════════════════════════════════════════════
-   DETECÇÃO DE OBJETIVO — NOME DA CAMPANHA
-   
-   Regra especial: Se formato = Reels/Vídeo → objetivo vira "Reels"
-   (mostra ThruPlay + Alcance + Visualização) SEMPRE,
-   independente do objetivo escrito no nome.
-   
-   Demais objetivos:
-   - Alcance       → ALC, ALCANCE, AL (+ fuzzy)
-   - Engajamento   → ENG, ENGAJAMENTO (+ fuzzy)
-   - EngLink       → ENG + CLIQUE NO LINK
-   - Conversas     → WHATS, WHATSAPP, WAPP (sem clique no link)
-   - ConvLink      → WHATS + CLIQUE NO LINK
-   - indefinido    → nada encontrado
-   ══════════════════════════════════════════════════════════════════ */
-function detectObjective(campName, format){
-  const n=(campName||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-
-  // Reels/Vídeo → SEMPRE ThruPlay, independente do objetivo
-  const isVideo = /reels|reel|video|vídeo/i.test(format||'');
-  if(isVideo) return 'Reels';
-
-  const hasClique=/CLIQUE\s*(NO\s*)?LINK/.test(n);
-
-  // Separar palavras do nome
-  const words=n.split(/[\s\-–_]+/);
-
-  const hasWhats=words.some(w=>fuzzyMatch(w,['whats','whatsapp','wapp'],1));
-  const hasTraf=words.some(w=>fuzzyMatch(w,['traf','trafego'],1));
-  const hasEng=words.some(w=>fuzzyMatch(w,['eng','engajamento'],2));
-  const hasAlc=words.some(w=>fuzzyMatch(w,['alc','alcance','al'],1));
-  const hasViews=words.some(w=>fuzzyMatch(w,['views','visualizacao','thruplay'],2));
-
-  if(hasWhats&&hasClique) return 'ConvLink';
-  if(hasWhats) return 'Conversas';
-  if(hasTraf&&hasClique) return 'ConvLink';
-  if(hasTraf) return 'Conversas';
-  if(hasEng&&hasClique) return 'EngLink';
-  if(hasEng) return 'Engajamento';
-  if(hasAlc) return 'Alcance';
-  if(hasViews) return 'Reels';
-
+function detectObjective(campName,format){
+  var n=(campName||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  var isVideo=/reels|reel|video|vídeo/i.test(format||'');
+  if(isVideo)return 'Reels';
+  var hasClique=/CLIQUE\s*(NO\s*)?LINK/.test(n);
+  var words=n.split(/[\s\-–_]+/);
+  var hasWhats=words.some(function(w){return fuzzyMatch(w,['whats','whatsapp','wapp'],1);});
+  var hasTraf=words.some(function(w){return fuzzyMatch(w,['traf','trafego'],1);});
+  var hasEng=words.some(function(w){return fuzzyMatch(w,['eng','engajamento'],2);});
+  var hasAlc=words.some(function(w){return fuzzyMatch(w,['alc','alcance','al'],1);});
+  var hasViews=words.some(function(w){return fuzzyMatch(w,['views','visualizacao','thruplay'],2);});
+  if(hasWhats&&hasClique)return 'ConvLink';
+  if(hasWhats)return 'Conversas';
+  if(hasTraf&&hasClique)return 'ConvLink';
+  if(hasTraf)return 'Conversas';
+  if(hasEng&&hasClique)return 'EngLink';
+  if(hasEng)return 'Engajamento';
+  if(hasAlc)return 'Alcance';
+  if(hasViews)return 'Reels';
   return 'indefinido';
 }
 
-const FORMAT_KWS=['reels','reel','panfleto','carrossel','carrosel','post','vídeo','video','tabloide','virtual'];
+var FORMAT_KWS=['reels','reel','panfleto','carrossel','carrosel','post','vídeo','video','tabloide','virtual'];
 function detectFormat(campName,adName){
-  const sources=[campName,adName].filter(Boolean).map(s=>s.toLowerCase());
-  for(const src of sources){for(const kw of FORMAT_KWS){if(src.includes(kw)){
-    if(kw==='reel'||kw==='reels')return'Reels';if(kw==='carrossel'||kw==='carrosel')return'Carrossel';
-    if(kw==='video'||kw==='vídeo')return'Vídeo';return kw.charAt(0).toUpperCase()+kw.slice(1);
-  }}}return'-';
+  var sources=[campName,adName].filter(Boolean).map(function(s){return s.toLowerCase();});
+  for(var si=0;si<sources.length;si++){var src=sources[si];
+    for(var ki=0;ki<FORMAT_KWS.length;ki++){var kw=FORMAT_KWS[ki];
+      if(src.includes(kw)){
+        if(kw==='reel'||kw==='reels')return 'Reels';
+        if(kw==='carrossel'||kw==='carrosel')return 'Carrossel';
+        if(kw==='video'||kw==='vídeo')return 'Vídeo';
+        return kw.charAt(0).toUpperCase()+kw.slice(1);
+      }
+    }
+  }
+  return '-';
 }
 
-const OBJ_LABELS={
-  Alcance:'Alcance',Engajamento:'Engajamento',EngLink:'Engajamento + Link',
-  Conversas:'Conversas (WhatsApp)',ConvLink:'WhatsApp + Link',
-  Reels:'Reels/Vídeo (ThruPlay)',indefinido:'⚠ Não detectado'
-};
-const OBJ_BADGE={
-  Alcance:'badge-alc',Engajamento:'badge-eng',EngLink:'badge-eng-link',
-  Conversas:'badge-conv',ConvLink:'badge-conv-link',
-  Reels:'badge-views',indefinido:'badge-unknown'
-};
-const OBJ_OPTIONS=['Alcance','Engajamento','EngLink','Conversas','ConvLink','Reels'];
-
-function objPriority(o){return{Alcance:1,Engajamento:2,EngLink:3,Conversas:4,ConvLink:5,Reels:6}[o]||7}
-
-/*
-  MAPA DE COLUNAS POR OBJETIVO:
-  ┌──────────────┬─────┬──────┬───────┬──────┬───────┬────────┬──────┬───────┬──────┬──────┐
-  │ Objetivo     │ CPM │ CPC  │ Thru  │ CInt │ CConv │ Alcanc │Views │ Eng   │ Conv │ Link │
-  ├──────────────┼─────┼──────┼───────┼──────┼───────┼────────┼──────┼───────┼──────┼──────┤
-  │ Alcance      │  ✓  │      │       │      │       │   ✓    │      │       │      │      │
-  │ Engajamento  │     │      │       │  ✓   │       │        │      │  ✓    │      │      │
-  │ EngLink      │     │  ✓   │       │      │       │        │      │       │      │  ✓   │
-  │ Conversas    │     │      │       │      │   ✓   │        │      │       │  ✓   │      │
-  │ ConvLink     │     │  ✓   │       │      │       │        │      │       │      │  ✓   │
-  │ Reels        │     │      │   ✓   │      │       │   ✓    │  ✓   │       │      │      │
-  └──────────────┴─────┴──────┴───────┴──────┴───────┴────────┴──────┴───────┴──────┴──────┘
-  Reels: Visualização vem da coluna "Resultados" do Meta
-*/
+var OBJ_LABELS={Alcance:'Alcance',Engajamento:'Engajamento',EngLink:'Engajamento + Link',Conversas:'Conversas (WhatsApp)',ConvLink:'WhatsApp + Link',Reels:'Reels/Vídeo (ThruPlay)',indefinido:'⚠ Não detectado'};
+var OBJ_BADGE={Alcance:'badge-alc',Engajamento:'badge-eng',EngLink:'badge-eng-link',Conversas:'badge-conv',ConvLink:'badge-conv-link',Reels:'badge-views',indefinido:'badge-unknown'};
+var OBJ_OPTIONS=['Alcance','Engajamento','EngLink','Conversas','ConvLink','Reels'];
+function objPriority(o){return{Alcance:1,Engajamento:2,EngLink:3,Conversas:4,ConvLink:5,Reels:6}[o]||7;}
 
 function parseExcel(wb){
-  const ws=wb.Sheets[wb.SheetNames[0]];
-  const rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,dateNF:'dd/mm/yyyy'});
+  var ws=wb.Sheets[wb.SheetNames[0]];
+  var rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,dateNF:'dd/mm/yyyy'});
   if(!rows.length)throw new Error('Arquivo vazio.');
-  const headers=rows[0].map(h=>String(h||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''));
-
-  const iCampName=getIdx(headers,['nome da campanha','campaign name']);
-  const iAdName=getIdx(headers,['nome do anuncio','ad name','nome do conjunto']);
-  const iDateStart=getIdx(headers,['inicio dos relatorios','reporting starts','data de inicio']);
-  const iDateEnd=getIdx(headers,['termino dos relatorios','reporting ends','data de termino']);
-  const iBudget=getIdx(headers,['orcamento da campanha','campaign budget','orcamento','investimento']);
-  const iSpent=getIdx(headers,['valor usado (brl)','valor usado','amount spent','valor gasto']);
-  const iCPM=getIdx(headers,['cpm (custo por 1.000 impressoes)','cpm','custo por 1.000 impressoes','custo por 1.000 pessoas']);
-  const iImpr=getIdx(headers,['impressoes','impressions']);
-  const iReach=getIdx(headers,['alcance','reach']);
-  const iResults=getIdx(headers,['resultados','results','result']);
-  const iEngPost=getIdx(headers,['engajamentos com o post','post engagements','engajamento com a publicacao']);
-  const iThruCost=getIdx(headers,['custo por thruplay','cost per thruplay']);
-  const iCPR=getIdx(headers,['custo por resultado','cost per result']);
-  const iCPEng=getIdx(headers,['custo por engajamento com o post','cost per post engagement','custo por interacao']);
-  const iCPConv=getIdx(headers,['custo por conversa por mensagem iniciada','cost per messaging conversation started','custo por conversa iniciada']);
-  const iLinkClk=getIdx(headers,['cliques no link','link clicks','cliques no site']);
-  const iCPC=getIdx(headers,['cpc (custo por clique no link)','cpc (custo por clique)','custo por clique no link','custo por cliques no link','cpc']);
-
-  const data=[];
-
-  for(let i=1;i<rows.length;i++){
-    const row=rows[i];if(!row||!row.length)continue;
-    const g=idx=>(idx>=0&&idx<row.length)?row[idx]:undefined;
-    const nameRaw=g(iCampName);if(!nameRaw)continue;
-    const name=String(nameRaw).trim();if(!name)continue;
-
-    const adName=String(g(iAdName)||'').trim();
-    const format=detectFormat(name,adName);
-    const objective=detectObjective(name,format);
-
-    // Validade: data do NOME da campanha
-    const dateFromName=extractDateFromName(name);
-    const dStart=parseMetaDate(g(iDateStart));
-    let validity='';
-    if(dateFromName) validity=fmtDateBR(dateFromName)+' –';
-    else if(dStart) validity=fmtDateBR(dStart)+' –';
-
-    const sortDate=dateFromName||dStart;
-    const spent=parseCurrency(g(iSpent));
-    const budget=parseCurrency(g(iBudget));
-    const impr=parseNum(g(iImpr));
-    const reach=parseNum(g(iReach));
-    const results=parseNum(g(iResults));
-    const links=parseNum(g(iLinkClk));
-    // Engajamento: prioriza "Engajamentos com o post", fallback pra "Resultados"
-    // Só preenche se formato for Panfleto, Carrossel ou Virtual
-    let eng = parseNum(g(iEngPost));
-    if (!eng && results > 0) eng = results;
-
-    let cpm=parseCurrency(g(iCPM));
+  var headers=rows[0].map(function(h){return String(h||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');});
+  var iCampName=getIdx(headers,['nome da campanha','campaign name']);
+  var iAdName=getIdx(headers,['nome do anuncio','ad name','nome do conjunto']);
+  var iDateStart=getIdx(headers,['inicio dos relatorios','reporting starts','data de inicio']);
+  var iBudget=getIdx(headers,['orcamento da campanha','campaign budget','orcamento','investimento']);
+  var iSpent=getIdx(headers,['valor usado (brl)','valor usado','amount spent','valor gasto']);
+  var iCPM=getIdx(headers,['cpm (custo por 1.000 impressoes)','cpm','custo por 1.000 impressoes']);
+  var iImpr=getIdx(headers,['impressoes','impressions']);
+  var iReach=getIdx(headers,['alcance','reach']);
+  var iResults=getIdx(headers,['resultados','results','result']);
+  var iEngPost=getIdx(headers,['engajamentos com o post','post engagements']);
+  var iThruCost=getIdx(headers,['custo por thruplay','cost per thruplay']);
+  var iCPR=getIdx(headers,['custo por resultado','cost per result']);
+  var iCPEng=getIdx(headers,['custo por engajamento com o post','cost per post engagement','custo por interacao']);
+  var iCPConv=getIdx(headers,['custo por conversa por mensagem iniciada','cost per messaging conversation started']);
+  var iLinkClk=getIdx(headers,['cliques no link','link clicks']);
+  var iCPC=getIdx(headers,['cpc (custo por clique no link)','cpc (custo por clique)','custo por clique no link','cpc']);
+  var data=[];
+  for(var i=1;i<rows.length;i++){
+    var row=rows[i];if(!row||!row.length)continue;
+    var g=function(idx){return(idx>=0&&idx<row.length)?row[idx]:undefined;};
+    var nameRaw=g(iCampName);if(!nameRaw)continue;
+    var name=String(nameRaw).trim();if(!name)continue;
+    var adName=String(g(iAdName)||'').trim();
+    var format=detectFormat(name,adName);
+    var objective=detectObjective(name,format);
+    var dateFromName=extractDateFromName(name);
+    var dStart=parseMetaDate(g(iDateStart));
+    var validity='';
+    if(dateFromName)validity=fmtDateBR(dateFromName)+' –';
+    else if(dStart)validity=fmtDateBR(dStart)+' –';
+    var sortDate=dateFromName||dStart;
+    var spent=parseCurrency(g(iSpent));
+    var budget=parseCurrency(g(iBudget));
+    var impr=parseNum(g(iImpr));
+    var reach=parseNum(g(iReach));
+    var results=parseNum(g(iResults));
+    var links=parseNum(g(iLinkClk));
+    var eng=parseNum(g(iEngPost));
+    if(!eng&&results>0)eng=results;
+    var cpm=parseCurrency(g(iCPM));
     if(!cpm&&impr>0&&spent>0)cpm=(spent/impr)*1000;
-
-    let cpc=parseCurrency(g(iCPC));
+    var cpc=parseCurrency(g(iCPC));
     if(!cpc&&links>0&&spent>0)cpc=spent/links;
-
-    let cThru=parseCurrency(g(iThruCost));
-    if(!cThru){const cpr=parseCurrency(g(iCPR));if(cpr>0)cThru=cpr;else if(results>0&&spent>0)cThru=spent/results;}
-
-    let cInt=parseCurrency(g(iCPEng));
-    if(!cInt){const cpr=parseCurrency(g(iCPR));if(cpr>0)cInt=cpr;else if(eng>0&&spent>0)cInt=spent/eng;}
-
-    let cConv=parseCurrency(g(iCPConv));
-    if(!cConv){const cpr=parseCurrency(g(iCPR));if(cpr>0)cConv=cpr;else if(results>0&&spent>0)cConv=spent/results;}
-
-    // Visualização para Reels = coluna Resultados do Meta
-    const views=results;
-    const conv=results;
-
-    data.push({name,format,objective,validity,sortDate,budget,spent,cpm,cpc,cThru,cInt,cConv,reach,impr,views,eng,conv,links});
+    var cThru=parseCurrency(g(iThruCost));
+    if(!cThru){var cpr1=parseCurrency(g(iCPR));if(cpr1>0)cThru=cpr1;else if(results>0&&spent>0)cThru=spent/results;}
+    var cInt=parseCurrency(g(iCPEng));
+    if(!cInt){var cpr2=parseCurrency(g(iCPR));if(cpr2>0)cInt=cpr2;else if(eng>0&&spent>0)cInt=spent/eng;}
+    var cConv=parseCurrency(g(iCPConv));
+    if(!cConv){var cpr3=parseCurrency(g(iCPR));if(cpr3>0)cConv=cpr3;else if(results>0&&spent>0)cConv=spent/results;}
+    data.push({name:name,format:format,objective:objective,validity:validity,sortDate:sortDate,budget:budget,spent:spent,cpm:cpm,cpc:cpc,cThru:cThru,cInt:cInt,cConv:cConv,reach:reach,impr:impr,views:results,eng:eng,conv:results,links:links});
   }
-
-  data.sort((a,b)=>{
-    const da=extractDateFromName(a.name),db=extractDateFromName(b.name);
-    const ta=da?da.getTime():(a.sortDate?a.sortDate.getTime():0);
-    const tb=db?db.getTime():(b.sortDate?b.sortDate.getTime():0);
+  data.sort(function(a,b){
+    var da=extractDateFromName(a.name),db=extractDateFromName(b.name);
+    var ta=da?da.getTime():(a.sortDate?a.sortDate.getTime():0);
+    var tb=db?db.getTime():(b.sortDate?b.sortDate.getTime():0);
     if(ta!==tb)return ta-tb;
     return objPriority(a.objective)-objPriority(b.objective);
   });
@@ -405,118 +330,133 @@ function parseExcel(wb){
 }
 
 function handleFile(e){
-  const file=e.target.files[0];if(!file)return;
+  var file=e.target.files[0];if(!file)return;
   originalFileName=file.name;
-  const reader=new FileReader();
-  reader.onload=ev=>{
+  var reader=new FileReader();
+  reader.onload=function(ev){
     try{
-      const wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});
-      const data=parseExcel(wb);
-      if(!data.length){showError('Nenhuma campanha encontrada.');return}
+      var wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});
+      var data=parseExcel(wb);
+      if(!data.length){showError('Nenhuma campanha encontrada.');return;}
       campaignsData=data;
-      const{cliente}=parseFileName(originalFileName);
-      document.getElementById('clienteName').textContent=cliente;
+      var info=parseFileName(originalFileName);
+      document.getElementById('clienteName').textContent=info.cliente;
       showReview();
-    }catch(err){console.error(err);showError('Erro ao processar. Verifique se é um .xlsx válido do Meta Ads.')}
+    }catch(err){console.error(err);showError('Erro ao processar. Verifique se é um .xlsx válido do Meta Ads.');}
   };
   reader.readAsArrayBuffer(file);e.target.value='';
 }
-function showError(msg){document.getElementById('errorText').textContent=msg;document.getElementById('errorMsg').style.display='flex'}
+function showError(msg){document.getElementById('errorText').textContent=msg;document.getElementById('errorMsg').style.display='flex';}
 
 function showReview(){
   document.getElementById('uploadArea').style.display='none';
   document.getElementById('reviewArea').style.display='block';
-  const tbody=document.getElementById('reviewBody');
+  var tbody=document.getElementById('reviewBody');
   tbody.innerHTML='';
-  campaignsData.forEach((r,i)=>{
-    const options=OBJ_OPTIONS.map(opt=>`<option value="${opt}" ${opt===r.objective?'selected':''}>${OBJ_LABELS[opt]}</option>`).join('');
-    tbody.innerHTML+=`<tr>
-      <td class="review-name">${r.name}</td>
-      <td class="review-format">${r.format}</td>
-      <td><span class="badge ${OBJ_BADGE[r.objective]||'badge-unknown'}" id="badge-${i}">${OBJ_LABELS[r.objective]||r.objective}</span></td>
-      <td><select class="obj-select" data-idx="${i}" onchange="updateObjective(this)">${options}</select></td>
-    </tr>`;
-  });
+  for(var i=0;i<campaignsData.length;i++){
+    var r=campaignsData[i];
+    var options='';
+    for(var oi=0;oi<OBJ_OPTIONS.length;oi++){
+      var opt=OBJ_OPTIONS[oi];
+      options+='<option value="'+opt+'" '+(opt===r.objective?'selected':'')+'>'+OBJ_LABELS[opt]+'</option>';
+    }
+    tbody.innerHTML+='<tr><td class="review-name">'+r.name+'</td><td class="review-format">'+r.format+'</td><td><span class="badge '+(OBJ_BADGE[r.objective]||'badge-unknown')+'" id="badge-'+i+'">'+(OBJ_LABELS[r.objective]||r.objective)+'</span></td><td><select class="obj-select" data-idx="'+i+'" onchange="updateObjective(this)">'+options+'</select></td></tr>';
+  }
   updateStats();
 }
 
 function updateObjective(sel){
-  const i=+sel.dataset.idx,o=sel.value;
+  var i=parseInt(sel.dataset.idx);var o=sel.value;
   campaignsData[i].objective=o;
-  const b=document.getElementById(`badge-${i}`);
-  b.className=`badge ${OBJ_BADGE[o]}`;b.textContent=OBJ_LABELS[o];
+  var b=document.getElementById('badge-'+i);
+  b.className='badge '+(OBJ_BADGE[o]||'badge-unknown');b.textContent=OBJ_LABELS[o]||o;
   updateStats();
 }
-
 function updateStats(){
-  const c={};campaignsData.forEach(r=>{c[r.objective]=(c[r.objective]||0)+1});
-  const el=document.getElementById('reviewStats');el.innerHTML='';
-  for(const[obj,cnt]of Object.entries(c))el.innerHTML+=`<div class="stat-chip ${OBJ_BADGE[obj]||'badge-unknown'}">${OBJ_LABELS[obj]||obj}: ${cnt}</div>`;
+  var c={};for(var i=0;i<campaignsData.length;i++){var obj=campaignsData[i].objective;c[obj]=(c[obj]||0)+1;}
+  var el=document.getElementById('reviewStats');el.innerHTML='';
+  for(var key in c){el.innerHTML+='<div class="stat-chip '+(OBJ_BADGE[key]||'badge-unknown')+'">'+(OBJ_LABELS[key]||key)+': '+c[key]+'</div>';}
 }
-
 function confirmAndRender(){
-  if(campaignsData.some(r=>r.objective==='indefinido')&&!confirm('Existem campanhas sem objetivo definido. Continuar?'))return;
+  var hasUndef=campaignsData.some(function(r){return r.objective==='indefinido';});
+  if(hasUndef&&!confirm('Existem campanhas sem objetivo definido. Continuar?'))return;
   document.getElementById('reviewArea').style.display='none';
   renderReport(campaignsData);
 }
 
+/*
+  NOVA ORDEM DAS COLUNAS (Modelo 10):
+  A  Nome da Ação
+  B  Formato
+  C  Validade
+  D  Investimento
+  E  Valor Gasto
+  F  Alcance           → Alcance, Reels
+  G  Engajamento       → Engajamento (Panfleto/Carrossel/Virtual/Tabloide/Post)
+  H  Cliques no Link   → EngLink, ConvLink
+  I  Visualização      → Reels (valor de Resultados do Meta)
+  J  Custo por 1.000   → Alcance
+  K  Custo por Cliques → EngLink, ConvLink
+  L  Custo por ThruPlay→ Reels
+  M  Custo por Interação→ Engajamento
+  N  Filtro
+  O  Cidade
+  P  Conversas Iniciadas→ Conversas
+*/
+
 function renderReport(data){
-  const tbody=document.getElementById('tableBody');
+  var tbody=document.getElementById('tableBody');
   tbody.innerHTML='';
-  let lastDateKey='';
+  var lastDateKey='';
 
-  data.forEach((r,idx)=>{
-    const o=r.objective;
+  for(var idx=0;idx<data.length;idx++){
+    var r=data[idx];
+    var o=r.objective;
+    var isEngFmt=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);
 
-    // Linha em branco entre datas diferentes
-    const curDate=extractDateFromName(r.name);
-    const curDateKey=curDate?curDate.getTime():'none';
+    var curDate=extractDateFromName(r.name);
+    var curDateKey=curDate?curDate.getTime():'none';
     if(idx>0&&curDateKey!==lastDateKey){
-      tbody.innerHTML+=`<tr><td colspan="17" style="background:#fff;border:none;height:16px"></td></tr>`;
+      tbody.innerHTML+='<tr><td colspan="17" style="background:#fff;border:none;height:16px"></td></tr>';
     }
     lastDateKey=curDateKey;
 
-    // Custos
-    const colCPM   = o==='Alcance'                    ? fmtBRL(r.cpm)   : '-';
-    const colCPC   = (o==='EngLink'||o==='ConvLink')   ? fmtBRL(r.cpc)   : '-';
-    const colThru  = o==='Reels'                       ? fmtBRL(r.cThru) : '-';
-    const colCInt  = (o==='Engajamento' && fmtEng)      ? fmtBRL(r.cInt)  : '-';
-    const colCConv = o==='Conversas'                   ? fmtBRL(r.cConv) : '-';
+    var colReach = (o==='Alcance'||o==='Reels') ? fmtNum(r.reach) : '-';
+    var colEng   = (o==='Engajamento'&&isEngFmt) ? fmtNum(r.eng) : '-';
+    var colLinks = (o==='EngLink'||o==='ConvLink') ? fmtNum(r.links) : '-';
+    var colViews = (o==='Reels') ? fmtNum(r.views) : '-';
+    var colCPM   = (o==='Alcance') ? fmtBRL(r.cpm) : '-';
+    var colCPC   = (o==='EngLink'||o==='ConvLink') ? fmtBRL(r.cpc) : '-';
+    var colThru  = (o==='Reels') ? fmtBRL(r.cThru) : '-';
+    var colCInt  = (o==='Engajamento'&&isEngFmt) ? fmtBRL(r.cInt) : '-';
+    var colCConv = (o==='Conversas') ? fmtBRL(r.cConv) : '-';
+    var colConv  = (o==='Conversas') ? fmtNum(r.conv) : '-';
 
-    // Métricas
-    const colReach = (o==='Alcance'||o==='Reels')      ? fmtNum(r.reach) : '-';
-    const colViews = o==='Reels'                       ? fmtNum(r.views) : '-';
-    // Engajamento: só preenche se formato for Panfleto, Carrossel ou Virtual
-    const fmtEng = /panfleto|carrossel|virtual/i.test(r.format);
-    const colEng   = (o==='Engajamento' && fmtEng)    ? fmtNum(r.eng)   : '-';
-    const colConv  = o==='Conversas'                   ? fmtNum(r.conv)  : '-';
-    const colLinks = (o==='EngLink'||o==='ConvLink')   ? fmtNum(r.links) : '-';
-
-    tbody.innerHTML+=`<tr>
-      <td>${r.name}</td>
-      <td>${r.format}</td>
-      <td>${r.validity||'-'}</td>
-      <td>${fmtBRL(r.budget)}</td>
-      <td>${fmtBRL(r.spent)}</td>
-      <td class="cost-col">${colCPM}</td>
-      <td class="cost-col">${colCPC}</td>
-      <td class="cost-col">${colThru}</td>
-      <td class="cost-col">${colCInt}</td>
-      <td class="cost-col">${colCConv}</td>
-      <td>-</td>
-      <td>-</td>
-      <td>${colReach}</td>
-      <td>${colViews}</td>
-      <td class="eng-col">${colEng}</td>
-      <td class="eng-col">${colConv}</td>
-      <td class="eng-col">${colLinks}</td>
-    </tr>`;
-  });
+    tbody.innerHTML+='<tr>'+
+      '<td>'+r.name+'</td>'+
+      '<td>'+r.format+'</td>'+
+      '<td>'+(r.validity||'-')+'</td>'+
+      '<td>'+fmtBRL(r.budget)+'</td>'+
+      '<td>'+fmtBRL(r.spent)+'</td>'+
+      '<td>'+colReach+'</td>'+
+      '<td>'+colEng+'</td>'+
+      '<td>'+colLinks+'</td>'+
+      '<td>'+colViews+'</td>'+
+      '<td>'+colCPM+'</td>'+
+      '<td>'+colCPC+'</td>'+
+      '<td>'+colThru+'</td>'+
+      '<td>'+colCInt+'</td>'+
+      '<td>'+colCConv+'</td>'+
+      '<td>-</td>'+
+      '<td>-</td>'+
+      '<td>'+colConv+'</td>'+
+    '</tr>';
+  }
 
   document.getElementById('reportArea').style.display='block';
   document.getElementById('headerBtns').style.display='flex';
-  const{cliente}=parseFileName(originalFileName);
-  document.getElementById('clienteNameReport').textContent=cliente;
+  var info=parseFileName(originalFileName);
+  document.getElementById('clienteNameReport').textContent=info.cliente;
 }
 
 function resetView(){
@@ -529,97 +469,116 @@ function resetView(){
 }
 
 function parseFileName(filename){
-  const base=filename.replace(/\.[^.]+$/,'').trim();
-  const MESES={'01':'Janeiro','02':'Fevereiro','03':'Março','04':'Abril','05':'Maio','06':'Junho','07':'Julho','08':'Agosto','09':'Setembro','10':'Outubro','11':'Novembro','12':'Dezembro','jan':'Janeiro','fev':'Fevereiro','mar':'Março','abr':'Abril','mai':'Maio','jun':'Junho','jul':'Julho','ago':'Agosto','set':'Setembro','out':'Outubro','nov':'Novembro','dez':'Dezembro','janeiro':'Janeiro','fevereiro':'Fevereiro','março':'Março','marco':'Março','abril':'Abril','maio':'Maio','junho':'Junho','julho':'Julho','agosto':'Agosto','setembro':'Setembro','outubro':'Outubro','novembro':'Novembro','dezembro':'Dezembro'};
-  const parts=base.split(/\s*[-–]\s*/).map(p=>p.trim()).filter(Boolean);
-  let cliente='',mes='',ano='';
-  parts.forEach(p=>{const pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/^\d{4}$/.test(p)){ano=p;return}if(MESES[pl]){mes=MESES[pl];return}if(MESES[p.toLowerCase()]){mes=MESES[p.toLowerCase()];return}if(!cliente)cliente=p});
-  if(!mes||!ano)parts.forEach(p=>{const pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(const[k,v]of Object.entries(MESES)){if(pl.includes(k)&&k.length>2){mes=v;break}}const ym=p.match(/\b(20\d{2})\b/);if(ym)ano=ym[1]});
+  var base=filename.replace(/\.[^.]+$/,'').trim();
+  var MESES={'01':'Janeiro','02':'Fevereiro','03':'Março','04':'Abril','05':'Maio','06':'Junho','07':'Julho','08':'Agosto','09':'Setembro','10':'Outubro','11':'Novembro','12':'Dezembro','jan':'Janeiro','fev':'Fevereiro','mar':'Março','abr':'Abril','mai':'Maio','jun':'Junho','jul':'Julho','ago':'Agosto','set':'Setembro','out':'Outubro','nov':'Novembro','dez':'Dezembro','janeiro':'Janeiro','fevereiro':'Fevereiro','março':'Março','marco':'Março','abril':'Abril','maio':'Maio','junho':'Junho','julho':'Julho','agosto':'Agosto','setembro':'Setembro','outubro':'Outubro','novembro':'Novembro','dezembro':'Dezembro'};
+  var parts=base.split(/\s*[-–]\s*/).map(function(p){return p.trim();}).filter(Boolean);
+  var cliente='',mes='',ano='';
+  parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/^\d{4}$/.test(p)){ano=p;return;}if(MESES[pl]){mes=MESES[pl];return;}if(MESES[p.toLowerCase()]){mes=MESES[p.toLowerCase()];return;}if(!cliente)cliente=p;});
+  if(!mes||!ano)parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(var k in MESES){if(pl.includes(k)&&k.length>2){mes=MESES[k];break;}}var ym=p.match(/\b(20\d{2})\b/);if(ym)ano=ym[1];});
   if(!cliente)cliente=parts[0]||'Cliente';if(!ano)ano=new Date().getFullYear().toString();
-  return{cliente,mes,ano};
+  return{cliente:cliente,mes:mes,ano:ano};
 }
 
 async function exportExcel(){
   if(!campaignsData.length)return;
-  const btn=document.getElementById('btnExcel');
+  var btn=document.getElementById('btnExcel');
   btn.textContent='Gerando...';btn.disabled=true;
-
-  const C={orange:'FFFF9900',gray1:'FFB7B7B7',white:'FFFFFFFF',black:'FF000000',dark:'FF222526'};
-  const bk={style:'thin',color:{argb:C.black}};
-  const bAll={top:bk,bottom:bk,left:bk,right:bk};
-  const fl=argb=>({type:'pattern',pattern:'solid',fgColor:{argb}});
-  const fn=(bold,size,argb,name)=>({bold:!!bold,size:size||10,color:{argb:argb||C.black},name:name||'Arial'});
-  const al=(h,v,wrap)=>({horizontal:h||'center',vertical:v||'top',wrapText:!!wrap});
-  const BRL='R$\\ #,##0.00',NUM='#,##0';
-
-  const wb=new ExcelJS.Workbook();
-  const ws=wb.addWorksheet('Relatório');
-  ws.columns=[{width:24},{width:14},{width:15},{width:14},{width:14},{width:22},{width:22},{width:20},{width:20},{width:20},{width:12},{width:12},{width:13},{width:14},{width:14},{width:18},{width:16}];
+  var C={orange:'FFFF9900',gray1:'FFB7B7B7',white:'FFFFFFFF',black:'FF000000',dark:'FF222526'};
+  var bk={style:'thin',color:{argb:C.black}};
+  var bAll={top:bk,bottom:bk,left:bk,right:bk};
+  var fl=function(argb){return{type:'pattern',pattern:'solid',fgColor:{argb:argb}};};
+  var fn=function(bold,size,argb,name){return{bold:!!bold,size:size||10,color:{argb:argb||C.black},name:name||'Arial'};};
+  var al=function(h,v,wrap){return{horizontal:h||'center',vertical:v||'top',wrapText:!!wrap};};
+  var BRL='R$\\ #,##0.00',NUM='#,##0';
+  var wb=new ExcelJS.Workbook();
+  var ws=wb.addWorksheet('Relatório');
+  ws.columns=[{width:24},{width:14},{width:15},{width:14},{width:14},{width:13},{width:14},{width:14},{width:18},{width:20},{width:22},{width:20},{width:20},{width:20},{width:12},{width:12},{width:18}];
 
   ws.addRow(['AÇÕES MENSAIS']);ws.mergeCells('A1:Q1');
-  const r1=ws.getCell('A1');r1.value='AÇÕES MENSAIS';r1.fill=fl(C.orange);r1.font=fn(true,10,C.white);r1.alignment=al('center','bottom');r1.border={bottom:bk,right:bk};ws.getRow(1).height=20;
+  var r1=ws.getCell('A1');r1.value='AÇÕES MENSAIS';r1.fill=fl(C.orange);r1.font=fn(true,15,C.white);r1.alignment=al('center','middle');r1.border={bottom:bk};ws.getRow(1).height=32;
 
-  const HDR=['NOME DA AÇÃO','FORMATO','VALIDADE','INVESTIMENTO','VALOR GASTO','CUSTO POR 1.000 PESSOAS','CUSTO POR CLIQUES NO LINK','CUSTO POR THRUPLAY','CUSTO POR INTERAÇÃO','CUSTO POR CONVERSA','FILTRO','CIDADE','ALCANCE','VISUALIZAÇÃO','ENGAJAMENTO','CONVERSAS INICIADAS','CLIQUES NO LINK'];
+  var HDR=['NOME DA AÇÃO','FORMATO','VALIDADE','INVESTIMENTO','VALOR GASTO','ALCANCE','ENGAJAMENTO','CLIQUES NO LINK','VISUALIZAÇÃO (THRUPLAY)','CUSTO POR 1.000 PESSOAS','CUSTO POR CLIQUES NO LINK','CUSTO POR THRUPLAY','CUSTO POR INTERAÇÃO','CUSTO POR CONVERSA','FILTRO','CIDADE','CONVERSAS INICIADAS'];
   ws.addRow(HDR);ws.getRow(2).height=20;
-  HDR.forEach((_,ci)=>{const cell=ws.getRow(2).getCell(ci+1);cell.fill=fl(C.gray1);cell.font=fn(true,10,C.black,'Century Gothic');cell.alignment=al('center','top');cell.border=bAll});
+  HDR.forEach(function(_,ci){var cell=ws.getRow(2).getCell(ci+1);cell.fill=fl(C.gray1);cell.font=fn(true,10,C.black,'Century Gothic');cell.alignment=al('center','middle',true);cell.border=bAll;});
 
-  let lastDateKeyXl='';
-  campaignsData.forEach(r=>{
-    const curDate=extractDateFromName(r.name);
-    const curDateKey=curDate?curDate.getTime():'none';
+  var lastDateKeyXl='';
+  campaignsData.forEach(function(r){
+    var curDate=extractDateFromName(r.name);
+    var curDateKey=curDate?curDate.getTime():'none';
     if(lastDateKeyXl!==''&&curDateKey!==lastDateKeyXl){
-      const rBlank=ws.addRow(Array(17).fill(''));rBlank.height=12;
-      for(let ci=1;ci<=17;ci++){rBlank.getCell(ci).fill=fl(C.white);rBlank.getCell(ci).border={}}
+      var rBlank=ws.addRow(Array(17).fill(''));rBlank.height=12;
+      for(var ci=1;ci<=17;ci++){rBlank.getCell(ci).fill=fl(C.white);rBlank.getCell(ci).border={};}
     }
     lastDateKeyXl=curDateKey;
-
-    const o=r.objective;
-    var isEngFmtXl = /panfleto|carrossel|virtual|tabloide|post/i.test(r.format);
-    const vals=[
+    var o=r.objective;
+    var isEngFmtXl=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);
+    var vals=[
       r.name,r.format,r.validity||'',
       r.budget>0?r.budget:'',r.spent>0?r.spent:'',
+      (o==='Alcance'||o==='Reels')&&r.reach>0?r.reach:'',
+      (o==='Engajamento'&&isEngFmtXl)&&r.eng>0?r.eng:'',
+      (o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',
+      o==='Reels'&&r.views>0?r.views:'',
       o==='Alcance'&&r.cpm>0?r.cpm:'',
       (o==='EngLink'||o==='ConvLink')&&r.cpc>0?r.cpc:'',
       o==='Reels'&&r.cThru>0?r.cThru:'',
       (o==='Engajamento'&&isEngFmtXl)&&r.cInt>0?r.cInt:'',
       o==='Conversas'&&r.cConv>0?r.cConv:'',
       '','',
-      (o==='Alcance'||o==='Reels')&&r.reach>0?r.reach:'',
-      o==='Reels'&&r.views>0?r.views:'',
-      (o==='Engajamento'&&isEngFmtXl)&&r.eng>0?r.eng:'',
       o==='Conversas'&&r.conv>0?r.conv:'',
-      (o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',
     ];
-    const row=ws.addRow(vals);row.height=20;
-    vals.forEach((v,ci)=>{
-      const cell=row.getCell(ci+1);cell.fill=fl(C.white);cell.font=fn(false,10,C.black);
+    var row=ws.addRow(vals);row.height=20;
+    vals.forEach(function(v,ci){
+      var cell=row.getCell(ci+1);cell.fill=fl(C.white);cell.font=fn(false,10,C.black);
       cell.alignment=ci===0?al('left','top',true):al('center','top');cell.border=bAll;
-      if(typeof v==='number'){if([3,4,5,6,7,8,9].includes(ci))cell.numFmt=BRL;if([12,13,14,15,16].includes(ci))cell.numFmt=NUM}
+      if(typeof v==='number'){
+        if([3,4,9,10,11,12,13].includes(ci))cell.numFmt=BRL;
+        if([5,6,7,8,16].includes(ci))cell.numFmt=NUM;
+      }
     });
   });
 
-  const rE=ws.addRow(Array(17).fill(''));rE.height=20;for(let ci=1;ci<=17;ci++){rE.getCell(ci).fill=fl(C.white);rE.getCell(ci).border={}}
+  // Empty row
+  var rE=ws.addRow(Array(17).fill(''));rE.height=20;
+  for(var ci=1;ci<=17;ci++){rE.getCell(ci).fill=fl(C.white);rE.getCell(ci).border={};}
 
-  const rLT=ws.addRow(['RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA']);ws.mergeCells(`A${rLT.number}:M${rLT.number}`);
-  const cLT=rLT.getCell(1);  cLT.value='RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA';cLT.fill=fl(C.orange);cLT.font=fn(true,12,C.white,'Century Gothic');cLT.alignment=al('center','bottom');cLT.border={right:bk};rLT.height=20;
+  // Legendas
+  var rLT=ws.addRow(['RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA']);
+  ws.mergeCells('A'+rLT.number+':I'+rLT.number);
+  var cLT=rLT.getCell(1);cLT.fill=fl(C.orange);cLT.font=fn(true,11,C.white,'Century Gothic');cLT.alignment=al('center','middle');rLT.height=20;
 
-  const legs=['Alcance: É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.','Engajamento: É o número de vezes que houve interação com a postagem de pessoas com maior probabilidade de interesse no produto ofertado. A plataforma analisa os perfis de pessoas que estejam procurando os produtos ofertados, e faz a entrega para estes perfis (sem filtro). Ou seja, a soma da quantidade de vezes que o post foi aberto, curtido, compartilhado, comentado por um público mais engajado.','Conversas iniciadas: Quantidade de conversas iniciadas no WhatsApp a partir do anúncio.','Visualização (ThruPlay): Número de vezes que o vídeo foi assistido por pelo menos 15 segundos ou até o fim, quando menor que esse tempo.','Cliques no link: Quantidade de cliques em links do anúncio para destinos externos, como site ou WhatsApp.'];
-  legs.forEach(txt=>{const rL=ws.addRow([txt]);ws.mergeCells(`A${rL.number}:M${rL.number}`);const cL=rL.getCell(1);cL.value=txt;cL.fill=fl(C.white);cL.font=fn(false,10,C.dark);cL.alignment=al('left','top',true);cL.border={bottom:bk,right:bk};rL.height=24});
+  var legs=[
+    'Alcance: É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.',
+    'Engajamento: É o número de vezes que houve interação com a postagem de pessoas com maior probabilidade de interesse no produto ofertado. A plataforma analisa os perfis de pessoas que estejam procurando os produtos ofertados, e faz a entrega para estes perfis (sem filtro). Ou seja, a soma da quantidade de vezes que o post foi aberto, curtido, compartilhado, comentado por um público mais engajado.',
+    'Conversas iniciadas: Quantidade de conversas iniciadas no WhatsApp a partir do anúncio.',
+    'Visualização (ThruPlay): Número de vezes que o vídeo foi assistido por pelo menos 15 segundos ou até o fim, quando menor que esse tempo.',
+    'Cliques no link: Quantidade de cliques em links do anúncio para destinos externos, como site ou WhatsApp.'
+  ];
+  legs.forEach(function(txt){
+    var rL=ws.addRow([txt]);ws.mergeCells('A'+rL.number+':I'+rL.number);
+    var cL=rL.getCell(1);cL.fill=fl(C.white);cL.font=fn(false,10,C.dark);
+    cL.alignment=al('left','top',true);cL.border={bottom:bk,right:bk};rL.height=24;
+  });
 
-  const rSep=ws.addRow(Array(13).fill(''));rSep.height=10;for(let ci=1;ci<=13;ci++){rSep.getCell(ci).border={bottom:bk};rSep.getCell(ci).fill=fl(C.white)}
-  const fnTxt='*Algumas colunas podem não ser preenchidas, pois variam de acordo com o tipo de impulsionamento e com as métricas disponíveis em cada campanha. Além disso, em alguns casos, a plataforma pode não utilizar toda a verba prevista, seja por limitação de público, concorrência no leilão de anúncios, baixo engajamento ou instabilidades na entrega. Por isso, o valor efetivamente considerado como consumido é o da coluna "Valor gasto".';
-  const rFn=ws.addRow([fnTxt]);ws.mergeCells(`A${rFn.number}:M${rFn.number}`);
-  const cFn=rFn.getCell(1);cFn.value=fnTxt;cFn.fill=fl(C.white);cFn.font=fn(false,10,C.black,'Century Gothic');cFn.alignment=al('left','top',true);cFn.border={bottom:bk,right:bk};rFn.height=50;
+  // Separator
+  var rSep=ws.addRow(Array(9).fill(''));rSep.height=10;
+  for(var ci=1;ci<=9;ci++){rSep.getCell(ci).border={bottom:{style:'double',color:{argb:C.black}}};rSep.getCell(ci).fill=fl(C.white);}
+
+  // Footnote
+  var fnTxt='*Algumas colunas podem não ser preenchidas, pois variam de acordo com o tipo de impulsionamento e com as métricas disponíveis em cada campanha. Além disso, em alguns casos, a plataforma pode não utilizar toda a verba prevista, seja por limitação de público, concorrência no leilão de anúncios, baixo engajamento ou instabilidades na entrega. Por isso, o valor efetivamente considerado como consumido é o da coluna "Valor gasto".';
+  var rFn=ws.addRow([fnTxt]);ws.mergeCells('A'+rFn.number+':I'+rFn.number);
+  var cFn=rFn.getCell(1);cFn.fill=fl(C.white);cFn.font=fn(false,10,C.black,'Century Gothic');
+  cFn.alignment=al('left','top',true);cFn.border={bottom:{style:'double',color:{argb:C.black}},right:{style:'double',color:{argb:C.black}}};rFn.height=50;
 
   try{
-    const buf=await wb.xlsx.writeBuffer();
-    const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-    const url=URL.createObjectURL(blob);const a=document.createElement('a');
-    const{cliente,mes,ano}=parseFileName(originalFileName);
-    a.href=url;a.download=['Relatório de impulsionamento',cliente,mes,ano].filter(Boolean).join(' - ')+'.xlsx';
+    var buf=await wb.xlsx.writeBuffer();
+    var blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    var url=URL.createObjectURL(blob);var a=document.createElement('a');
+    var info=parseFileName(originalFileName);
+    a.href=url;a.download=['Relatório de impulsionamento',info.cliente,info.mes,info.ano].filter(Boolean).join(' - ')+'.xlsx';
     document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
   }finally{
-    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel`;btn.disabled=false;
+    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel';btn.disabled=false;
   }
 }
 </script>
