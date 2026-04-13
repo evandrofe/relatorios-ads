@@ -344,13 +344,14 @@ function parseExcel(wb){
     const objective=detectObjective(name);
     const format=detectFormat(name,adName);
 
+    // Validade: usa a data do NOME da campanha (não do Meta)
+    const dateFromName=extractDateFromName(name);
     const dStart=parseMetaDate(g(iDateStart));
-    const dEnd=parseMetaDate(g(iDateEnd));
     let validity='';
-    if(dStart&&dEnd)validity=`${fmtDateBR(dStart)} – ${fmtDateBR(dEnd)}`;
-    else if(dStart)validity=fmtDateBR(dStart);
+    if(dateFromName) validity=fmtDateBR(dateFromName)+' –';
+    else if(dStart) validity=fmtDateBR(dStart)+' –';
 
-    const sortDate=dStart||extractDateFromName(name);
+    const sortDate=dateFromName||dStart;
     const spent=parseCurrency(g(iSpent));
     const budget=parseCurrency(g(iBudget));
     const impr=parseNum(g(iImpr));
@@ -455,8 +456,18 @@ function renderReport(data){
   const tbody=document.getElementById('tableBody');
   tbody.innerHTML='';
 
-  data.forEach(r=>{
+  let lastDateKey='';
+
+  data.forEach((r,idx)=>{
     const o=r.objective;
+
+    // Separar conjuntos por data diferente (linha em branco)
+    const curDate=extractDateFromName(r.name);
+    const curDateKey=curDate?curDate.getTime():'none';
+    if(idx>0 && curDateKey!==lastDateKey){
+      tbody.innerHTML+=`<tr><td colspan="17" style="background:#fff;border:none;height:16px"></td></tr>`;
+    }
+    lastDateKey=curDateKey;
 
     // Custos
     const colCPM   = o==='Alcance'      ? fmtBRL(r.cpm)   : '-';
