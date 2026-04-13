@@ -135,7 +135,7 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
   <!-- REVIEW -->
   <div id="reviewArea">
     <div class="review-card">
-      <h2>Revisar Objetivos das Campanhas</h2>
+      <h2>Revisar Objetivos das Campanhas — <span id="clienteName" style="color:#ff9900"></span></h2>
       <p>Confira os objetivos detectados e ajuste se necessário.</p>
       <div class="review-stats" id="reviewStats"></div>
       <div style="overflow-x:auto">
@@ -155,7 +155,7 @@ table.report td.eng-col{background:#e5e7eb;font-weight:700}
   <div id="reportArea" style="display:none">
     <div class="report-header">
       <div>
-        <h2>Visualização do Relatório</h2>
+        <h2>Visualização do Relatório — <span id="clienteNameReport" style="color:#ff9900"></span></h2>
         <p>Apenas as métricas correspondentes ao objetivo são preenchidas.</p>
       </div>
       <button class="btn-back" onclick="resetView()">Importar outro arquivo</button>
@@ -397,7 +397,10 @@ function handleFile(e){
       const wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});
       const data=parseExcel(wb);
       if(!data.length){showError('Nenhuma campanha encontrada.');return}
-      campaignsData=data;showReview();
+      campaignsData=data;
+      const{cliente}=parseFileName(originalFileName);
+      document.getElementById('clienteName').textContent=cliente;
+      showReview();
     }catch(err){console.error(err);showError('Erro ao processar. Verifique se é um .xlsx válido do Meta Ads.')}
   };
   reader.readAsArrayBuffer(file);e.target.value='';
@@ -492,6 +495,8 @@ function renderReport(data){
 
   document.getElementById('reportArea').style.display='block';
   document.getElementById('headerBtns').style.display='flex';
+  const{cliente}=parseFileName(originalFileName);
+  document.getElementById('clienteNameReport').textContent=cliente;
 }
 
 function resetView(){
