@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Relatórios Ads</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f0f0f;color:#e5e5e5;min-height:100vh}
+header{background:#0f0f0f;border-bottom:1px solid #262626;position:sticky;top:0;z-index:50;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{background:#ff9900;padding:6px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:18px;height:18px;fill:white}
+.logo h1{font-size:18px;font-weight:700;color:#fff}
+.logo h1 span{color:#ff9900}
+.header-btns{display:flex;gap:10px}
+.btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;border:none;font-weight:500;transition:all .2s}
+.btn-excel{background:#15803d;color:#fff;border:1px solid #16a34a}
+.btn-excel:hover{background:#16a34a}
+.btn-pdf{background:#262626;color:#fff;border:1px solid #404040}
+.btn-pdf:hover{background:#333}
+.btn-back{background:transparent;color:#9ca3af;border:none;font-size:13px;cursor:pointer;text-decoration:underline;padding:4px 0}
+.btn-back:hover{color:#fff}
+main{max-width:1400px;margin:0 auto;padding:32px 24px}
+.upload-wrap{max-width:600px;margin:48px auto}
+.upload-card{background:#262626;border-radius:16px;border:2px dashed #404040;padding:48px;text-align:center}
+.upload-icon{width:72px;height:72px;background:#1a1a1a;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.upload-icon svg{width:36px;height:36px;fill:#ff9900}
+.upload-card h2{font-size:22px;font-weight:700;margin-bottom:8px}
+.upload-card p{color:#9ca3af;margin-bottom:28px;font-size:14px}
+.btn-upload{background:#ff9900;color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-upload:hover{background:#e68900;transform:scale(1.03)}
+.error{margin-top:20px;background:rgba(153,27,27,.4);border:1px solid #991b1b;color:#fca5a5;padding:12px 16px;border-radius:8px;font-size:13px;display:flex;align-items:center;gap:8px}
+.instructions{margin-top:24px;background:rgba(0,0,0,.3);border:1px solid #333;border-radius:8px;padding:16px;text-align:left;font-size:13px;color:#6b7280}
+.instructions strong{color:#9ca3af;display:block;margin-bottom:8px}
+.instructions ul{padding-left:20px;line-height:1.8}
+.instructions code{background:#1a1a1a;padding:2px 6px;border-radius:4px;font-size:12px;color:#ff9900}
+
+/* Review */
+#reviewArea{display:none}
+.review-card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:24px;margin-bottom:16px}
+.review-card h2{font-size:20px;font-weight:700;margin-bottom:4px}
+.review-card>p{color:#9ca3af;font-size:13px;margin-bottom:20px}
+.review-table{width:100%;border-collapse:collapse;font-size:13px}
+.review-table th{text-align:left;padding:10px 12px;border-bottom:1px solid #333;color:#9ca3af;font-weight:600;font-size:11px;text-transform:uppercase}
+.review-table td{padding:10px 12px;border-bottom:1px solid #222}
+.review-table tr:hover{background:#222}
+.review-name{color:#fff;font-weight:500;max-width:300px;word-break:break-word}
+.review-format{color:#9ca3af}
+.badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase;white-space:nowrap}
+.badge-alc{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.3)}
+.badge-eng{background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.3)}
+.badge-eng-link{background:rgba(168,85,247,.15);color:#c4b5fd;border:1px solid rgba(168,85,247,.25)}
+.badge-conv{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.3)}
+.badge-conv-link{background:rgba(34,197,94,.15);color:#6ee7b7;border:1px solid rgba(34,197,94,.25)}
+.badge-views{background:rgba(251,146,60,.2);color:#fed7aa;border:1px solid rgba(251,146,60,.3)}
+.badge-unknown{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+.obj-select{background:#262626;color:#e5e5e5;border:1px solid #404040;border-radius:6px;padding:5px 8px;font-size:12px;cursor:pointer}
+.obj-select:focus{border-color:#ff9900;outline:none}
+.btn-generate{background:#ff9900;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:16px}
+.btn-generate:hover{background:#e68900;transform:scale(1.02)}
+.review-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
+.review-stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.stat-chip{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600}
+
+/* Report */
+.report-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.report-header h2{font-size:22px;font-weight:700}
+.report-header p{color:#9ca3af;font-size:13px;margin-top:2px}
+.table-wrap{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #000;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.table-title{background:#ff9900;color:#fff;text-align:center;padding:8px;font-weight:700;font-size:13px;letter-spacing:.5px;border-bottom:1px solid #000}
+.table-scroll{overflow-x:auto}
+table.report{width:100%;border-collapse:collapse;color:#000;font-size:10.5px}
+table.report thead tr{background:#b7b7b7}
+table.report th{padding:7px 5px;font-weight:700;font-size:9.5px;text-transform:uppercase;border-right:1px solid #000;border-bottom:1px solid #000;text-align:center;white-space:nowrap;font-family:'Century Gothic',Arial}
+table.report th:first-child{text-align:left}
+table.report th.gray{background:#d9d9d9}
+table.report td{padding:6px 5px;border-right:1px solid #d1d5db;border-bottom:1px solid #d1d5db;text-align:center;background:#fff;white-space:nowrap}
+table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
+table.report td.cost-col{background:#f3f4f6;font-weight:700}
+table.report td.eng-col{background:#e5e7eb;font-weight:700}
+.legend{background:#fff;border:1px solid #000;padding:16px;margin-top:24px;color:#000;border-radius:4px}
+.legend-title{background:#ff9900;color:#fff;font-weight:700;text-align:center;padding:6px;margin:-16px -16px 16px;border-radius:4px 4px 0 0;font-size:13px;font-family:'Century Gothic',Arial}
+.legend p{font-size:13px;margin-bottom:10px;line-height:1.6}
+.legend-note{font-size:11px;color:#6b7280;border-top:1px solid #ddd;padding-top:10px;margin-top:10px}
+@media print{header,#headerBtns,.btn-back{display:none!important}body{background:#fff;color:#000}main{padding:0}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 10h2v2H7v-2zm0-4h2v4H7V11zm4 2h2v4h-2v-4zm0-4h2v2h-2V9zm4 6h2v2h-2v-2zm0-6h2v6h-2V9z"/></svg></div>
+    <h1>Relatórios <span>Ads</span></h1>
+  </div>
+  <div class="header-btns" id="headerBtns" style="display:none">
+    <button class="btn btn-excel" id="btnExcel" onclick="exportExcel()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel</button>
+    <button class="btn btn-pdf" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF</button>
+  </div>
+</header>
+
+<main id="mainContent">
+  <!-- UPLOAD -->
+  <div id="uploadArea" class="upload-wrap">
+    <div class="upload-card">
+      <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg></div>
+      <h2>Importar Dados da Campanha</h2>
+      <p>Carregue o arquivo Excel (.xlsx) exportado do Gerenciador de Anúncios do Meta.</p>
+      <input type="file" id="fileInput" accept=".xlsx,.xls" style="display:none" onchange="handleFile(event)"/>
+      <button class="btn-upload" onclick="document.getElementById('fileInput').click()">Selecionar Arquivo Excel</button>
+      <div id="errorMsg" class="error" style="display:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        <span id="errorText"></span>
+      </div>
+      <div class="instructions">
+        <strong>Padrão de nome das campanhas:</strong>
+        <ul>
+          <li><code>Nome - Formato - Data - Objetivo</code></li>
+          <li>Objetivos: <code>ALC</code> <code>ENG</code> <code>WHATS</code> <code>VIEWS</code></li>
+          <li>Modificador: <code>CLIQUE NO LINK</code> após o objetivo</li>
+        </ul>
+        <strong style="margin-top:12px">Exemplos:</strong>
+        <ul>
+          <li><code>Tijotel - Carrossel - 01/03/26 - ALC</code></li>
+          <li><code>Tijotel - Post - 05/03/26 - ENG</code></li>
+          <li><code>Tijotel - Reels - 10/03/26 - WHATS</code></li>
+          <li><code>Tijotel - Post - 12/03/26 - ENG CLIQUE NO LINK</code></li>
+          <li><code>Tijotel - Reels - 15/03/26 - VIEWS</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEW -->
+  <div id="reviewArea">
+    <div class="review-card">
+      <h2>Revisar Objetivos das Campanhas</h2>
+      <p>Confira os objetivos detectados e ajuste se necessário.</p>
+      <div class="review-stats" id="reviewStats"></div>
+      <div style="overflow-x:auto">
+        <table class="review-table">
+          <thead><tr><th>Campanha</th><th>Formato</th><th>Objetivo Detectado</th><th>Alterar</th></tr></thead>
+          <tbody id="reviewBody"></tbody>
+        </table>
+      </div>
+      <div class="review-actions">
+        <button class="btn-generate" onclick="confirmAndRender()">Gerar Relatório</button>
+        <button class="btn-back" onclick="resetView()">Voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPORT -->
+  <div id="reportArea" style="display:none">
+    <div class="report-header">
+      <div>
+        <h2>Visualização do Relatório</h2>
+        <p>Apenas as métricas correspondentes ao objetivo são preenchidas.</p>
+      </div>
+      <button class="btn-back" onclick="resetView()">Importar outro arquivo</button>
+    </div>
+    <div class="table-wrap">
+      <div class="table-title">AÇÕES MENSAIS</div>
+      <div class="table-scroll">
+        <table class="report">
+          <thead><tr>
+            <th>Nome da Ação</th>
+            <th>Formato</th>
+            <th>Validade</th>
+            <th>Investimento</th>
+            <th>Valor Gasto</th>
+            <th class="gray">Custo por 1.000 Pessoas</th>
+            <th class="gray">Custo por Cliques no Link</th>
+            <th class="gray">Custo por ThruPlay</th>
+            <th class="gray">Custo por Interação</th>
+            <th class="gray">Custo por Conversa</th>
+            <th>Filtro</th>
+            <th>Cidade</th>
+            <th>Alcance</th>
+            <th>Visualização</th>
+            <th style="background:#b7b7b7">Engajamento</th>
+            <th style="background:#b7b7b7">Conversas Iniciadas</th>
+            <th style="background:#b7b7b7">Cliques no Link</th>
+          </tr></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-title">LEGENDAS</div>
+      <p><strong>Alcance:</strong> É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.</p>
+      <p><strong>Engajamento:</strong> É o número de vezes que houve interação com a postagem de pessoas com maior probabilidade de interesse no produto ofertado. A plataforma analisa os perfis de pessoas que estejam procurando os produtos ofertados, e faz a entrega para estes perfis (sem filtro). Ou seja, a soma da quantidade de vezes que o post foi aberto, curtido, compartilhado, comentado por um público mais engajado.</p>
+      <p><strong>Conversas Iniciadas:</strong> Número de conversas iniciadas no WhatsApp a partir do anúncio.</p>
+      <p><strong>Visualização (ThruPlay):</strong> Número de vezes que o vídeo/reels foi assistido por pelo menos 15 segundos (ou até o final, se menor que 15s).</p>
+      <p><strong>Cliques no Link:</strong> Número de cliques em links do anúncio que direcionam para destinos externos (sites, landing pages, comunidades).</p>
+      <p class="legend-note">*Erros na plataforma em relação a verba não utilizada, ou utilizado parcialmente, em sua totalidade podem acontecer por diversos fatores, como: Público não engajado, concorrentes anunciando no mesmo local com um valor maior, público estagnado com conteúdo ou instabilidade da plataforma. O valor do investimento foi maior, porém o valor que foi consumido pela plataforma é o da coluna "valor gasto".</p>
+    </div>
+  </div>
+</main>
+
+<script>
+let campaignsData = [];
+let originalFileName = '';
+
+/* ── Formatters ── */
+const fmtBRL = v => (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v):'-';
+const fmtNum = v => (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR').format(v):'-';
+
+/* ── Parsers ── */
+function parseCurrency(v){if(typeof v==='number')return v;if(!v)return 0;return parseFloat(String(v).replace(/[^0-9,.\-]/g,'').replace(/\.(?=\d{3})/g,'').replace(',','.'))||0}
+function parseNum(v){if(typeof v==='number')return Math.round(v);if(!v)return 0;return parseInt(String(v).replace(/[^0-9]/g,''),10)||0}
+function parseMetaDate(v){
+  if(!v)return null;
+  if(typeof v==='number'){const d=new Date(Math.round((v-25569)*86400*1000));return isNaN(d)?null:d}
+  const s=String(v).trim();
+  let m=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+  if(m){const d=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d)?null:d}
+  m=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})$/);
+  if(m){let yr=+m[3];if(yr<100)yr+=2000;const d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d)?null:d}
+  return null;
+}
+function fmtDateBR(d){if(!d)return '';return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`}
+function extractDateFromName(name){const m=(name||'').match(/(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);if(!m)return null;let yr=+m[3];if(yr<100)yr+=2000;const d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d.getTime())?null:d}
+function getIdx(headers,kws){let i=headers.findIndex(h=>kws.some(k=>h===k));if(i>=0)return i;return headers.findIndex(h=>kws.some(k=>h.includes(k)))}
+
+/* ══════════════════════════════════════════════════════════════════
+   DETECÇÃO DE OBJETIVO — NOME DA CAMPANHA
+   
+   Objetivos possíveis:
+   - Alcance          → ALC / ALCANCE
+   - Engajamento      → ENG / ENGAJAMENTO (sem "clique no link")
+   - EngLink          → ENG + CLIQUE NO LINK
+   - Conversas        → WHATS / WHATSAPP (sem "clique no link")
+   - ConvLink         → WHATS + CLIQUE NO LINK
+   - Visualizacao     → VIEWS / VISUALIZAÇÃO
+   - indefinido       → nada encontrado
+   ══════════════════════════════════════════════════════════════════ */
+function detectObjective(campName) {
+  const n = (campName||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+
+  const hasClique = /CLIQUE\s*(NO\s*)?LINK/.test(n);
+  const hasWhats  = /\bWHATS\b|\bWHATSAPP\b|\bWAPP\b/.test(n);
+  const hasEng    = /\bENG\b|\bENGAJAMENTO\b/.test(n);
+  const hasAlc    = /\bALC\b|\bALCANCE\b/.test(n);
+  const hasTraf   = /\bTRAF\b|\bTRAFEGO\b/.test(n);
+  const hasViews  = /\bVIEWS\b|\bVISUALIZACAO\b|\bTHRUPLAY\b/.test(n);
+
+  // WHATS + CLIQUE NO LINK
+  if (hasWhats && hasClique) return 'ConvLink';
+  // WHATS sem clique
+  if (hasWhats) return 'Conversas';
+  // TRÁFEGO (sempre conversas)
+  if (hasTraf && hasClique) return 'ConvLink';
+  if (hasTraf) return 'Conversas';
+  // ENG + CLIQUE NO LINK
+  if (hasEng && hasClique) return 'EngLink';
+  // ENG puro
+  if (hasEng) return 'Engajamento';
+  // ALCANCE
+  if (hasAlc) return 'Alcance';
+  // VIEWS
+  if (hasViews) return 'Visualizacao';
+
+  return 'indefinido';
+}
+
+/* ── Format detector ── */
+const FORMAT_KWS=['reels','reel','panfleto','carrossel','carrosel','post','vídeo','video','tabloide','virtual'];
+function detectFormat(campName,adName){
+  const sources=[campName,adName].filter(Boolean).map(s=>s.toLowerCase());
+  for(const src of sources){for(const kw of FORMAT_KWS){if(src.includes(kw)){
+    if(kw==='reel'||kw==='reels')return'Reels';if(kw==='carrossel'||kw==='carrosel')return'Carrossel';
+    if(kw==='video'||kw==='vídeo')return'Vídeo';return kw.charAt(0).toUpperCase()+kw.slice(1);
+  }}}return'-';
+}
+
+/* ── Labels & badges ── */
+const OBJ_LABELS={
+  Alcance:'Alcance',Engajamento:'Engajamento',EngLink:'Engajamento + Link',
+  Conversas:'Conversas (WhatsApp)',ConvLink:'WhatsApp + Link',
+  Visualizacao:'Visualização (ThruPlay)',indefinido:'⚠ Não detectado'
+};
+const OBJ_BADGE={
+  Alcance:'badge-alc',Engajamento:'badge-eng',EngLink:'badge-eng-link',
+  Conversas:'badge-conv',ConvLink:'badge-conv-link',
+  Visualizacao:'badge-views',indefinido:'badge-unknown'
+};
+const OBJ_OPTIONS=['Alcance','Engajamento','EngLink','Conversas','ConvLink','Visualizacao'];
+
+function objPriority(o){return{Alcance:1,Engajamento:2,EngLink:3,Conversas:4,ConvLink:5,Visualizacao:6}[o]||7}
+
+/*
+  MAPA DE COLUNAS POR OBJETIVO:
+  ┌──────────────┬─────┬──────┬───────┬──────┬───────┬────────┬──────┬───────┬────────┐
+  │ Objetivo     │ CPM │ CPC  │ Thru  │ CInt │ CConv │ Alcanc │Views │ Eng   │Conv│Link│
+  ├──────────────┼─────┼──────┼───────┼──────┼───────┼────────┼──────┼───────┼────────┤
+  │ Alcance      │  ✓  │      │       │      │       │   ✓    │      │       │        │
+  │ Engajamento  │     │      │       │  ✓   │       │        │      │  ✓    │        │
+  │ EngLink      │     │  ✓   │       │      │       │        │      │       │   ✓    │
+  │ Conversas    │     │      │       │      │   ✓   │        │      │  ✓conv│   ✓    │
+  │ ConvLink     │     │  ✓   │       │      │       │        │      │       │   ✓    │
+  │ Visualizacao │     │      │   ✓   │      │       │        │  ✓   │       │        │
+  └──────────────┴─────┴──────┴───────┴──────┴───────┴────────┴──────┴───────┴────────┘
+*/
+
+/* ══════════════════════════════════════════════════════════════════
+   PARSE EXCEL
+   ══════════════════════════════════════════════════════════════════ */
+function parseExcel(wb){
+  const ws=wb.Sheets[wb.SheetNames[0]];
+  const rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,dateNF:'dd/mm/yyyy'});
+  if(!rows.length)throw new Error('Arquivo vazio.');
+
+  const headers=rows[0].map(h=>String(h||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''));
+
+  const iCampName=getIdx(headers,['nome da campanha','campaign name']);
+  const iAdName=getIdx(headers,['nome do anuncio','ad name','nome do conjunto']);
+  const iDateStart=getIdx(headers,['inicio dos relatorios','reporting starts','data de inicio']);
+  const iDateEnd=getIdx(headers,['termino dos relatorios','reporting ends','data de termino']);
+  const iBudget=getIdx(headers,['orcamento da campanha','campaign budget','orcamento','investimento']);
+  const iSpent=getIdx(headers,['valor usado (brl)','valor usado','amount spent','valor gasto']);
+  const iCPM=getIdx(headers,['cpm (custo por 1.000 impressoes)','cpm','custo por 1.000 impressoes','custo por 1.000 pessoas']);
+  const iImpr=getIdx(headers,['impressoes','impressions']);
+  const iReach=getIdx(headers,['alcance','reach']);
+  const iResults=getIdx(headers,['resultados','results','result']);
+  const iEngPost=getIdx(headers,['engajamentos com o post','post engagements','engajamento com a publicacao']);
+  const iThruCost=getIdx(headers,['custo por thruplay','cost per thruplay']);
+  const iCPR=getIdx(headers,['custo por resultado','cost per result']);
+  const iCPEng=getIdx(headers,['custo por engajamento com o post','cost per post engagement','custo por interacao']);
+  const iCPConv=getIdx(headers,['custo por conversa por mensagem iniciada','cost per messaging conversation started','custo por conversa iniciada']);
+  const iLinkClk=getIdx(headers,['cliques no link','link clicks','cliques no site']);
+  const iCPC=getIdx(headers,['cpc (custo por clique no link)','cpc (custo por clique)','custo por clique no link','custo por cliques no link','cpc']);
+
+  const data=[];
+
+  for(let i=1;i<rows.length;i++){
+    const row=rows[i];if(!row||!row.length)continue;
+    const g=idx=>(idx>=0&&idx<row.length)?row[idx]:undefined;
+    const nameRaw=g(iCampName);if(!nameRaw)continue;
+    const name=String(nameRaw).trim();if(!name)continue;
+
+    const adName=String(g(iAdName)||'').trim();
+    const objective=detectObjective(name);
+    const format=detectFormat(name,adName);
+
+    const dStart=parseMetaDate(g(iDateStart));
+    const dEnd=parseMetaDate(g(iDateEnd));
+    let validity='';
+    if(dStart&&dEnd)validity=`${fmtDateBR(dStart)} – ${fmtDateBR(dEnd)}`;
+    else if(dStart)validity=fmtDateBR(dStart);
+
+    const sortDate=dStart||extractDateFromName(name);
+    const spent=parseCurrency(g(iSpent));
+    const budget=parseCurrency(g(iBudget));
+    const impr=parseNum(g(iImpr));
+    const reach=parseNum(g(iReach));
+    const results=parseNum(g(iResults));
+    const links=parseNum(g(iLinkClk));
+    const eng=parseNum(g(iEngPost));
+
+    let cpm=parseCurrency(g(iCPM));
+    if(!cpm&&impr>0&&spent>0)cpm=(spent/impr)*1000;
+
+    let cpc=parseCurrency(g(iCPC));
+    if(!cpc&&links>0&&spent>0)cpc=spent/links;
+
+    let cThru=parseCurrency(g(iThruCost));
+    if(!cThru){const cpr=parseCurrency(g(iCPR));if(cpr>0)cThru=cpr;else if(results>0&&spent>0)cThru=spent/results;}
+
+    let cInt=parseCurrency(g(iCPEng));
+    if(!cInt){const cpr=parseCurrency(g(iCPR));if(cpr>0)cInt=cpr;else if(eng>0&&spent>0)cInt=spent/eng;}
+
+    let cConv=parseCurrency(g(iCPConv));
+    if(!cConv){const cpr=parseCurrency(g(iCPR));if(cpr>0)cConv=cpr;else if(results>0&&spent>0)cConv=spent/results;}
+
+    data.push({name,format,objective,validity,sortDate,budget,spent,cpm,cpc,cThru,cInt,cConv,reach,impr,views:results,eng,conv:results,links});
+  }
+
+  data.sort((a,b)=>{
+    const da=extractDateFromName(a.name),db=extractDateFromName(b.name);
+    const ta=da?da.getTime():(a.sortDate?a.sortDate.getTime():0);
+    const tb=db?db.getTime():(b.sortDate?b.sortDate.getTime():0);
+    if(ta!==tb)return ta-tb;
+    return objPriority(a.objective)-objPriority(b.objective);
+  });
+  return data;
+}
+
+/* ── File handler ── */
+function handleFile(e){
+  const file=e.target.files[0];if(!file)return;
+  originalFileName=file.name;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});
+      const data=parseExcel(wb);
+      if(!data.length){showError('Nenhuma campanha encontrada.');return}
+      campaignsData=data;showReview();
+    }catch(err){console.error(err);showError('Erro ao processar. Verifique se é um .xlsx válido do Meta Ads.')}
+  };
+  reader.readAsArrayBuffer(file);e.target.value='';
+}
+function showError(msg){document.getElementById('errorText').textContent=msg;document.getElementById('errorMsg').style.display='flex'}
+
+/* ══════════════════════════════════════════════════════════════════
+   REVIEW SCREEN
+   ══════════════════════════════════════════════════════════════════ */
+function showReview(){
+  document.getElementById('uploadArea').style.display='none';
+  document.getElementById('reviewArea').style.display='block';
+  const tbody=document.getElementById('reviewBody');
+  tbody.innerHTML='';
+
+  campaignsData.forEach((r,i)=>{
+    const options=OBJ_OPTIONS.map(opt=>`<option value="${opt}" ${opt===r.objective?'selected':''}>${OBJ_LABELS[opt]}</option>`).join('');
+    tbody.innerHTML+=`<tr>
+      <td class="review-name">${r.name}</td>
+      <td class="review-format">${r.format}</td>
+      <td><span class="badge ${OBJ_BADGE[r.objective]||'badge-unknown'}" id="badge-${i}">${OBJ_LABELS[r.objective]||r.objective}</span></td>
+      <td><select class="obj-select" data-idx="${i}" onchange="updateObjective(this)">${options}</select></td>
+    </tr>`;
+  });
+  updateStats();
+}
+
+function updateObjective(sel){
+  const i=+sel.dataset.idx,o=sel.value;
+  campaignsData[i].objective=o;
+  const b=document.getElementById(`badge-${i}`);
+  b.className=`badge ${OBJ_BADGE[o]}`;b.textContent=OBJ_LABELS[o];
+  updateStats();
+}
+
+function updateStats(){
+  const c={};campaignsData.forEach(r=>{c[r.objective]=(c[r.objective]||0)+1});
+  const el=document.getElementById('reviewStats');el.innerHTML='';
+  for(const[obj,cnt]of Object.entries(c))el.innerHTML+=`<div class="stat-chip ${OBJ_BADGE[obj]||'badge-unknown'}">${OBJ_LABELS[obj]||obj}: ${cnt}</div>`;
+}
+
+function confirmAndRender(){
+  if(campaignsData.some(r=>r.objective==='indefinido')&&!confirm('Existem campanhas sem objetivo definido. Continuar?'))return;
+  document.getElementById('reviewArea').style.display='none';
+  renderReport(campaignsData);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RENDER REPORT
+   ══════════════════════════════════════════════════════════════════ */
+function renderReport(data){
+  const tbody=document.getElementById('tableBody');
+  tbody.innerHTML='';
+
+  data.forEach(r=>{
+    const o=r.objective;
+
+    // Custos
+    const colCPM   = o==='Alcance'      ? fmtBRL(r.cpm)   : '-';
+    const colCPC   = (o==='EngLink'||o==='ConvLink') ? fmtBRL(r.cpc) : '-';
+    const colThru  = o==='Visualizacao'  ? fmtBRL(r.cThru) : '-';
+    const colCInt  = o==='Engajamento'   ? fmtBRL(r.cInt)  : '-';
+    const colCConv = o==='Conversas'     ? fmtBRL(r.cConv) : '-';
+
+    // Métricas
+    const colReach = o==='Alcance'       ? fmtNum(r.reach) : '-';
+    const colViews = o==='Visualizacao'  ? fmtNum(r.views) : '-';
+    const colEng   = o==='Engajamento'   ? fmtNum(r.eng)   : '-';
+    const colConv  = o==='Conversas'     ? fmtNum(r.conv)  : '-';
+    const colLinks = (o==='Conversas'||o==='EngLink'||o==='ConvLink') ? fmtNum(r.links) : '-';
+
+    tbody.innerHTML+=`<tr>
+      <td>${r.name}</td>
+      <td>${r.format}</td>
+      <td>${r.validity||'-'}</td>
+      <td>${fmtBRL(r.budget)}</td>
+      <td>${fmtBRL(r.spent)}</td>
+      <td class="cost-col">${colCPM}</td>
+      <td class="cost-col">${colCPC}</td>
+      <td class="cost-col">${colThru}</td>
+      <td class="cost-col">${colCInt}</td>
+      <td class="cost-col">${colCConv}</td>
+      <td>-</td>
+      <td>-</td>
+      <td>${colReach}</td>
+      <td>${colViews}</td>
+      <td class="eng-col">${colEng}</td>
+      <td class="eng-col">${colConv}</td>
+      <td class="eng-col">${colLinks}</td>
+    </tr>`;
+  });
+
+  document.getElementById('reportArea').style.display='block';
+  document.getElementById('headerBtns').style.display='flex';
+}
+
+function resetView(){
+  campaignsData=[];
+  document.getElementById('uploadArea').style.display='block';
+  document.getElementById('reviewArea').style.display='none';
+  document.getElementById('reportArea').style.display='none';
+  document.getElementById('headerBtns').style.display='none';
+  document.getElementById('errorMsg').style.display='none';
+}
+
+/* ── File name parser ── */
+function parseFileName(filename){
+  const base=filename.replace(/\.[^.]+$/,'').trim();
+  const MESES={'01':'Janeiro','02':'Fevereiro','03':'Março','04':'Abril','05':'Maio','06':'Junho','07':'Julho','08':'Agosto','09':'Setembro','10':'Outubro','11':'Novembro','12':'Dezembro','jan':'Janeiro','fev':'Fevereiro','mar':'Março','abr':'Abril','mai':'Maio','jun':'Junho','jul':'Julho','ago':'Agosto','set':'Setembro','out':'Outubro','nov':'Novembro','dez':'Dezembro','janeiro':'Janeiro','fevereiro':'Fevereiro','março':'Março','marco':'Março','abril':'Abril','maio':'Maio','junho':'Junho','julho':'Julho','agosto':'Agosto','setembro':'Setembro','outubro':'Outubro','novembro':'Novembro','dezembro':'Dezembro'};
+  const parts=base.split(/\s*[-–]\s*/).map(p=>p.trim()).filter(Boolean);
+  let cliente='',mes='',ano='';
+  parts.forEach(p=>{const pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/^\d{4}$/.test(p)){ano=p;return}if(MESES[pl]){mes=MESES[pl];return}if(MESES[p.toLowerCase()]){mes=MESES[p.toLowerCase()];return}if(!cliente)cliente=p});
+  if(!mes||!ano)parts.forEach(p=>{const pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(const[k,v]of Object.entries(MESES)){if(pl.includes(k)&&k.length>2){mes=v;break}}const ym=p.match(/\b(20\d{2})\b/);if(ym)ano=ym[1]});
+  if(!cliente)cliente=parts[0]||'Cliente';if(!ano)ano=new Date().getFullYear().toString();
+  return{cliente,mes,ano};
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   EXPORT EXCEL
+   ══════════════════════════════════════════════════════════════════ */
+async function exportExcel(){
+  if(!campaignsData.length)return;
+  const btn=document.getElementById('btnExcel');
+  btn.textContent='Gerando...';btn.disabled=true;
+
+  const C={orange:'FFFF9900',gray1:'FFB7B7B7',white:'FFFFFFFF',black:'FF000000',dark:'FF222526'};
+  const bk={style:'thin',color:{argb:C.black}};
+  const bAll={top:bk,bottom:bk,left:bk,right:bk};
+  const fl=argb=>({type:'pattern',pattern:'solid',fgColor:{argb}});
+  const fn=(bold,size,argb,name)=>({bold:!!bold,size:size||10,color:{argb:argb||C.black},name:name||'Arial'});
+  const al=(h,v,wrap)=>({horizontal:h||'center',vertical:v||'top',wrapText:!!wrap});
+  const BRL='R$\\ #,##0.00',NUM='#,##0';
+
+  const wb=new ExcelJS.Workbook();
+  const ws=wb.addWorksheet('Relatório');
+  ws.columns=[{width:24},{width:14},{width:15},{width:14},{width:14},{width:22},{width:22},{width:20},{width:20},{width:20},{width:12},{width:12},{width:13},{width:14},{width:14},{width:18},{width:16}];
+
+  // Title row
+  ws.addRow(['AÇÕES MENSAIS']);ws.mergeCells('A1:Q1');
+  const r1=ws.getCell('A1');r1.value='AÇÕES MENSAIS';r1.fill=fl(C.orange);r1.font=fn(true,10,C.white);r1.alignment=al('center','bottom');r1.border={bottom:bk,right:bk};ws.getRow(1).height=20;
+
+  // Headers
+  const HDR=['NOME DA AÇÃO','FORMATO','VALIDADE','INVESTIMENTO','VALOR GASTO','CUSTO POR 1.000 PESSOAS','CUSTO POR CLIQUES NO LINK','CUSTO POR THRUPLAY','CUSTO POR INTERAÇÃO','CUSTO POR CONVERSA','FILTRO','CIDADE','ALCANCE','VISUALIZAÇÃO','ENGAJAMENTO','CONVERSAS INICIADAS','CLIQUES NO LINK'];
+  ws.addRow(HDR);ws.getRow(2).height=20;
+  HDR.forEach((_,ci)=>{const cell=ws.getRow(2).getCell(ci+1);cell.fill=fl(C.gray1);cell.font=fn(true,10,C.black,'Century Gothic');cell.alignment=al('center','top');cell.border=bAll});
+
+  // Data
+  campaignsData.forEach(r=>{
+    const o=r.objective;
+    const vals=[
+      r.name,r.format,r.validity||'',
+      r.budget>0?r.budget:'',r.spent>0?r.spent:'',
+      o==='Alcance'&&r.cpm>0?r.cpm:'',
+      (o==='EngLink'||o==='ConvLink')&&r.cpc>0?r.cpc:'',
+      o==='Visualizacao'&&r.cThru>0?r.cThru:'',
+      o==='Engajamento'&&r.cInt>0?r.cInt:'',
+      o==='Conversas'&&r.cConv>0?r.cConv:'',
+      '','',
+      o==='Alcance'&&r.reach>0?r.reach:'',
+      o==='Visualizacao'&&r.views>0?r.views:'',
+      o==='Engajamento'&&r.eng>0?r.eng:'',
+      o==='Conversas'&&r.conv>0?r.conv:'',
+      (o==='Conversas'||o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',
+    ];
+    const row=ws.addRow(vals);row.height=20;
+    vals.forEach((v,ci)=>{
+      const cell=row.getCell(ci+1);cell.fill=fl(C.white);cell.font=fn(false,10,C.black);
+      cell.alignment=ci===0?al('left','top',true):al('center','top');cell.border=bAll;
+      if(typeof v==='number'){if([3,4,5,6,7,8,9].includes(ci))cell.numFmt=BRL;if([12,13,14,15,16].includes(ci))cell.numFmt=NUM}
+    });
+  });
+
+  // Empty + Legendas
+  const rE=ws.addRow(Array(17).fill(''));rE.height=20;for(let ci=1;ci<=17;ci++){rE.getCell(ci).fill=fl(C.white);rE.getCell(ci).border={}}
+
+  const rLT=ws.addRow(['LEGENDAS']);ws.mergeCells(`A${rLT.number}:L${rLT.number}`);
+  const cLT=rLT.getCell(1);cLT.value='LEGENDAS';cLT.fill=fl(C.orange);cLT.font=fn(true,12,C.white,'Century Gothic');cLT.alignment=al('center','bottom');cLT.border={right:bk};rLT.height=20;
+
+  const legs=['Alcance: É o número de contas que a postagem alcançou.','Engajamento: É o número de vezes que houve interação com a postagem.','Conversas Iniciadas: Número de conversas iniciadas no WhatsApp a partir do anúncio.','Visualização (ThruPlay): Número de vezes que o vídeo foi assistido por pelo menos 15 segundos.','Cliques no Link: Número de cliques em links do anúncio para destinos externos.'];
+  legs.forEach(txt=>{const rL=ws.addRow([txt]);ws.mergeCells(`A${rL.number}:L${rL.number}`);const cL=rL.getCell(1);cL.value=txt;cL.fill=fl(C.white);cL.font=fn(false,10,C.dark);cL.alignment=al('left','top',true);cL.border={bottom:bk,right:bk};rL.height=24});
+
+  const rSep=ws.addRow(Array(12).fill(''));rSep.height=10;for(let ci=1;ci<=12;ci++){rSep.getCell(ci).border={bottom:bk};rSep.getCell(ci).fill=fl(C.white)}
+  const fnTxt='*Erros na plataforma em relação a verba não utilizada podem acontecer por diversos fatores, como: Público não engajado, concorrentes anunciando no mesmo local com um valor maior, público estagnado com conteúdo ou instabilidade da plataforma. O valor do investimento foi maior, porém o valor que foi consumido pela plataforma é o da coluna "valor gasto".';
+  const rFn=ws.addRow([fnTxt]);ws.mergeCells(`A${rFn.number}:L${rFn.number}`);
+  const cFn=rFn.getCell(1);cFn.value=fnTxt;cFn.fill=fl(C.white);cFn.font=fn(false,10,C.black,'Century Gothic');cFn.alignment=al('left','top',true);cFn.border={bottom:bk,right:bk};rFn.height=50;
+
+  try{
+    const buf=await wb.xlsx.writeBuffer();
+    const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url=URL.createObjectURL(blob);const a=document.createElement('a');
+    const{cliente,mes,ano}=parseFileName(originalFileName);
+    a.href=url;a.download=['Relatório de impulsionamento',cliente,mes,ano].filter(Boolean).join(' - ')+'.xlsx';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  }finally{
+    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel`;btn.disabled=false;
+  }
+}
+</script>
+</body>
+</html>
