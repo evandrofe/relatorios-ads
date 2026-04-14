@@ -17,12 +17,9 @@ header{background:#0f0f0f;border-bottom:1px solid #262626;position:sticky;top:0;
 .logo h1 span{color:#ff9900}
 .header-btns{display:flex;gap:10px}
 .btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;border:none;font-weight:500;transition:all .2s}
-.btn-excel{background:#15803d;color:#fff;border:1px solid #16a34a}
-.btn-excel:hover{background:#16a34a}
-.btn-pdf{background:#262626;color:#fff;border:1px solid #404040}
-.btn-pdf:hover{background:#333}
-.btn-back{background:transparent;color:#9ca3af;border:none;font-size:13px;cursor:pointer;text-decoration:underline;padding:4px 0}
-.btn-back:hover{color:#fff}
+.btn-excel{background:#15803d;color:#fff;border:1px solid #16a34a}.btn-excel:hover{background:#16a34a}
+.btn-pdf{background:#262626;color:#fff;border:1px solid #404040}.btn-pdf:hover{background:#333}
+.btn-back{background:transparent;color:#9ca3af;border:none;font-size:13px;cursor:pointer;text-decoration:underline;padding:4px 0}.btn-back:hover{color:#fff}
 main{max-width:1400px;margin:0 auto;padding:32px 24px}
 .upload-wrap{max-width:600px;margin:48px auto}
 .upload-card{background:#262626;border-radius:16px;border:2px dashed #404040;padding:48px;text-align:center}
@@ -30,13 +27,13 @@ main{max-width:1400px;margin:0 auto;padding:32px 24px}
 .upload-icon svg{width:36px;height:36px;fill:#ff9900}
 .upload-card h2{font-size:22px;font-weight:700;margin-bottom:8px}
 .upload-card p{color:#9ca3af;margin-bottom:28px;font-size:14px}
-.btn-upload{background:#ff9900;color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
-.btn-upload:hover{background:#e68900;transform:scale(1.03)}
+.btn-upload{background:#ff9900;color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}.btn-upload:hover{background:#e68900;transform:scale(1.03)}
 .error{margin-top:20px;background:rgba(153,27,27,.4);border:1px solid #991b1b;color:#fca5a5;padding:12px 16px;border-radius:8px;font-size:13px;display:flex;align-items:center;gap:8px}
 .instructions{margin-top:24px;background:rgba(0,0,0,.3);border:1px solid #333;border-radius:8px;padding:16px;text-align:left;font-size:13px;color:#6b7280}
 .instructions strong{color:#9ca3af;display:block;margin-bottom:8px}
 .instructions ul{padding-left:20px;line-height:1.8}
 .instructions code{background:#1a1a1a;padding:2px 6px;border-radius:4px;font-size:12px;color:#ff9900}
+/* Review */
 #reviewArea{display:none}
 .review-card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:24px;margin-bottom:16px}
 .review-card h2{font-size:20px;font-weight:700;margin-bottom:4px}
@@ -55,13 +52,27 @@ main{max-width:1400px;margin:0 auto;padding:32px 24px}
 .badge-conv-link{background:rgba(34,197,94,.15);color:#6ee7b7;border:1px solid rgba(34,197,94,.25)}
 .badge-views{background:rgba(251,146,60,.2);color:#fed7aa;border:1px solid rgba(251,146,60,.3)}
 .badge-unknown{background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
-.obj-select{background:#262626;color:#e5e5e5;border:1px solid #404040;border-radius:6px;padding:5px 8px;font-size:12px;cursor:pointer}
-.obj-select:focus{border-color:#ff9900;outline:none}
-.btn-generate{background:#ff9900;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:16px}
-.btn-generate:hover{background:#e68900;transform:scale(1.02)}
+.obj-select{background:#262626;color:#e5e5e5;border:1px solid #404040;border-radius:6px;padding:5px 8px;font-size:12px;cursor:pointer}.obj-select:focus{border-color:#ff9900;outline:none}
+.btn-generate{background:#ff9900;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:16px}.btn-generate:hover{background:#e68900;transform:scale(1.02)}
 .review-actions{display:flex;gap:12px;align-items:center;margin-top:8px}
 .review-stats{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .stat-chip{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:600}
+/* Capa */
+#capaArea{display:none}
+.capa-card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:24px}
+.capa-card h2{font-size:20px;font-weight:700;margin-bottom:4px}
+.capa-card>p{color:#9ca3af;font-size:13px;margin-bottom:24px}
+.capa-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:700px){.capa-grid{grid-template-columns:1fr}}
+.capa-section{background:#262626;border-radius:10px;padding:20px;border:1px solid #333}
+.capa-section h3{font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.capa-section h3 .icon-fb{color:#1877f2}.capa-section h3 .icon-ig{color:#e4405f}
+.capa-field{margin-bottom:14px}
+.capa-field label{display:block;font-size:12px;color:#9ca3af;margin-bottom:4px;font-weight:600;text-transform:uppercase}
+.capa-field input{width:100%;background:#1a1a1a;border:1px solid #404040;border-radius:6px;padding:8px 12px;color:#fff;font-size:14px;font-family:inherit}.capa-field input:focus{border-color:#ff9900;outline:none}
+.capa-field input::placeholder{color:#555}
+.capa-actions{display:flex;gap:12px;align-items:center;margin-top:20px}
+/* Report */
 .report-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .report-header h2{font-size:22px;font-weight:700}
 .report-header p{color:#9ca3af;font-size:13px;margin-top:2px}
@@ -72,7 +83,6 @@ table.report{width:100%;border-collapse:collapse;color:#000;font-size:10.5px}
 table.report thead tr{background:#b7b7b7}
 table.report th{padding:7px 5px;font-weight:700;font-size:9.5px;text-transform:uppercase;border-right:1px solid #000;border-bottom:1px solid #000;text-align:center;white-space:nowrap;font-family:'Century Gothic',Arial}
 table.report th:first-child{text-align:left}
-table.report th.gray{background:#b7b7b7}
 table.report td{padding:6px 5px;border-right:1px solid #d1d5db;border-bottom:1px solid #d1d5db;text-align:center;background:#fff;white-space:nowrap}
 table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
 .legend{background:#fff;border:1px solid #000;padding:16px;margin-top:24px;color:#000;border-radius:4px}
@@ -84,16 +94,14 @@ table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
 </head>
 <body>
 <header>
-  <div class="logo">
-    <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 10h2v2H7v-2zm0-4h2v4H7V11zm4 2h2v4h-2v-4zm0-4h2v2h-2V9zm4 6h2v2h-2v-2zm0-6h2v6h-2V9z"/></svg></div>
-    <h1>Relatórios <span>Ads</span></h1>
-  </div>
+  <div class="logo"><div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 10h2v2H7v-2zm0-4h2v4H7V11zm4 2h2v4h-2v-4zm0-4h2v2h-2V9zm4 6h2v2h-2v-2zm0-6h2v6h-2V9z"/></svg></div><h1>Relatórios <span>Ads</span></h1></div>
   <div class="header-btns" id="headerBtns" style="display:none">
     <button class="btn btn-excel" id="btnExcel" onclick="exportExcel()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel</button>
     <button class="btn btn-pdf" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg> PDF</button>
   </div>
 </header>
 <main id="mainContent">
+  <!-- UPLOAD -->
   <div id="uploadArea" class="upload-wrap">
     <div class="upload-card">
       <div class="upload-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg></div>
@@ -101,72 +109,59 @@ table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
       <p>Carregue o arquivo Excel (.xlsx) exportado do Gerenciador de Anúncios do Meta.</p>
       <input type="file" id="fileInput" accept=".xlsx,.xls" style="display:none" onchange="handleFile(event)"/>
       <button class="btn-upload" onclick="document.getElementById('fileInput').click()">Selecionar Arquivo Excel</button>
-      <div id="errorMsg" class="error" style="display:none">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-        <span id="errorText"></span>
-      </div>
+      <div id="errorMsg" class="error" style="display:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span id="errorText"></span></div>
       <div class="instructions">
         <strong>Padrão de nome das campanhas:</strong>
-        <ul>
-          <li><code>Nome - Formato - Data - Objetivo</code></li>
-          <li>Objetivos: <code>ALC</code> <code>ENG</code> <code>WHATS</code> <code>VIEWS</code></li>
-          <li>Modificador: <code>CLIQUE NO LINK</code> após o objetivo</li>
-        </ul>
+        <ul><li><code>Nome - Formato - Data - Objetivo</code></li><li>Objetivos: <code>ALC</code> <code>ENG</code> <code>WHATS</code> <code>VIEWS</code></li><li>Modificador: <code>CLIQUE NO LINK</code></li></ul>
       </div>
     </div>
   </div>
+  <!-- REVIEW -->
   <div id="reviewArea">
     <div class="review-card">
-      <h2>Revisar Objetivos das Campanhas — <span id="clienteName" style="color:#ff9900"></span></h2>
+      <h2>Revisar Objetivos — <span id="clienteName" style="color:#ff9900"></span></h2>
       <p>Confira os objetivos detectados e ajuste se necessário.</p>
       <div class="review-stats" id="reviewStats"></div>
-      <div style="overflow-x:auto">
-        <table class="review-table">
-          <thead><tr><th>Campanha</th><th>Formato</th><th>Objetivo Detectado</th><th>Alterar</th></tr></thead>
-          <tbody id="reviewBody"></tbody>
-        </table>
-      </div>
-      <div class="review-actions">
-        <button class="btn-generate" onclick="confirmAndRender()">Gerar Relatório</button>
-        <button class="btn-back" onclick="resetView()">Voltar</button>
-      </div>
+      <div style="overflow-x:auto"><table class="review-table"><thead><tr><th>Campanha</th><th>Formato</th><th>Objetivo</th><th>Alterar</th></tr></thead><tbody id="reviewBody"></tbody></table></div>
+      <div class="review-actions"><button class="btn-generate" onclick="goToCapa()">Próximo: Preencher Capa →</button><button class="btn-back" onclick="resetView()">Voltar</button></div>
     </div>
   </div>
+  <!-- CAPA -->
+  <div id="capaArea">
+    <div class="capa-card">
+      <h2>Preencher Dados da Capa — <span id="capaClienteName" style="color:#ff9900"></span></h2>
+      <p>Preencha os dados de seguidores e métricas do Facebook e Instagram para a capa do relatório.</p>
+      <div class="capa-grid">
+        <div class="capa-section">
+          <h3><span class="icon-fb">📘</span> Facebook</h3>
+          <div class="capa-field"><label>Total de Seguidores</label><input type="text" id="fb_seguidores" placeholder="Ex: 5.230"></div>
+          <div class="capa-field"><label>Seguidores no Mês Anterior</label><input type="text" id="fb_seg_anterior" placeholder="Ex: 5.100"></div>
+          <div class="capa-field"><label>% Homens</label><input type="text" id="fb_homens" placeholder="Ex: 27,2%"></div>
+          <div class="capa-field"><label>% Mulheres</label><input type="text" id="fb_mulheres" placeholder="Ex: 72,8%"></div>
+          <div class="capa-field"><label>Faixa Etária Principal</label><input type="text" id="fb_faixa" placeholder="Ex: 25 a 45"></div>
+          <div class="capa-field"><label>Contas Alcançadas</label><input type="text" id="fb_alcancadas" placeholder="Ex: 12.500"></div>
+          <div class="capa-field"><label>Visitas à Página</label><input type="text" id="fb_visitas" placeholder="Ex: 3.200"></div>
+        </div>
+        <div class="capa-section">
+          <h3><span class="icon-ig">📸</span> Instagram</h3>
+          <div class="capa-field"><label>Total de Seguidores</label><input type="text" id="ig_seguidores" placeholder="Ex: 8.450"></div>
+          <div class="capa-field"><label>Seguidores no Mês Anterior</label><input type="text" id="ig_seg_anterior" placeholder="Ex: 8.100"></div>
+          <div class="capa-field"><label>% Homens</label><input type="text" id="ig_homens" placeholder="Ex: 33,7%"></div>
+          <div class="capa-field"><label>% Mulheres</label><input type="text" id="ig_mulheres" placeholder="Ex: 66,3%"></div>
+          <div class="capa-field"><label>Faixa Etária Principal</label><input type="text" id="ig_faixa" placeholder="Ex: 25 a 45"></div>
+          <div class="capa-field"><label>Contas Alcançadas</label><input type="text" id="ig_alcancadas" placeholder="Ex: 25.000"></div>
+          <div class="capa-field"><label>Visitas ao Perfil</label><input type="text" id="ig_visitas" placeholder="Ex: 6.800"></div>
+        </div>
+      </div>
+      <div class="capa-actions"><button class="btn-generate" onclick="confirmAndRender()">Gerar Relatório</button><button class="btn-back" onclick="backToReview()">← Voltar à Revisão</button></div>
+    </div>
+  </div>
+  <!-- REPORT -->
   <div id="reportArea" style="display:none">
-    <div class="report-header">
-      <div>
-        <h2>Visualização do Relatório — <span id="clienteNameReport" style="color:#ff9900"></span></h2>
-        <p>Apenas as métricas correspondentes ao objetivo são preenchidas.</p>
-      </div>
-      <button class="btn-back" onclick="resetView()">Importar outro arquivo</button>
-    </div>
-    <div class="table-wrap">
-      <div class="table-title">AÇÕES MENSAIS</div>
-      <div class="table-scroll">
-        <table class="report">
-          <thead><tr>
-            <th>Nome da Ação</th>
-            <th>Formato</th>
-            <th>Validade</th>
-            <th>Investimento</th>
-            <th>Valor Gasto</th>
-            <th>Alcance</th>
-            <th>Engajamento</th>
-            <th>Cliques no Link</th>
-            <th>Visualização (ThruPlay)</th>
-            <th class="gray">Custo por 1.000 Pessoas</th>
-            <th class="gray">Custo por Cliques no Link</th>
-            <th>Custo por ThruPlay</th>
-            <th>Custo por Interação</th>
-            <th>Custo por Conversa</th>
-            <th>Filtro</th>
-            <th>Cidade</th>
-            <th>Conversas Iniciadas</th>
-          </tr></thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </div>
-    </div>
+    <div class="report-header"><div><h2>Relatório — <span id="clienteNameReport" style="color:#ff9900"></span></h2><p>Apenas as métricas correspondentes ao objetivo são preenchidas.</p></div><button class="btn-back" onclick="resetView()">Importar outro arquivo</button></div>
+    <div class="table-wrap"><div class="table-title">AÇÕES MENSAIS</div><div class="table-scroll"><table class="report"><thead><tr>
+      <th>Nome da Ação</th><th>Formato</th><th>Validade</th><th>Investimento</th><th>Valor Gasto</th><th>Alcance</th><th>Engajamento</th><th>Cliques no Link</th><th>Visualização (ThruPlay)</th><th>Custo por 1.000 Pessoas</th><th>Custo por Cliques no Link</th><th>Custo por ThruPlay</th><th>Custo por Interação</th><th>Custo por Conversa</th><th>Filtro</th><th>Cidade</th><th>Conversas Iniciadas</th>
+    </tr></thead><tbody id="tableBody"></tbody></table></div></div>
     <div class="legend">
       <div class="legend-title">RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA</div>
       <p><strong>Alcance:</strong> É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.</p>
@@ -179,408 +174,116 @@ table.report td:first-child{text-align:left;white-space:normal;min-width:180px}
   </div>
 </main>
 <script>
-var campaignsData = [];
-var originalFileName = '';
-
-var fmtBRL = function(v) { return (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v):'-'; };
-var fmtNum = function(v) { return (typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR').format(v):'-'; };
-
+var campaignsData=[];var originalFileName='';var capaData={};
+var fmtBRL=function(v){return(typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v):'-';};
+var fmtNum=function(v){return(typeof v==='number'&&v>0)?new Intl.NumberFormat('pt-BR').format(v):'-';};
 function parseCurrency(v){if(typeof v==='number')return v;if(!v)return 0;return parseFloat(String(v).replace(/[^0-9,.\-]/g,'').replace(/\.(?=\d{3})/g,'').replace(',','.'))||0;}
 function parseNum(v){if(typeof v==='number')return Math.round(v);if(!v)return 0;return parseInt(String(v).replace(/[^0-9]/g,''),10)||0;}
-function parseMetaDate(v){
-  if(!v)return null;
-  if(typeof v==='number'){var d=new Date(Math.round((v-25569)*86400*1000));return isNaN(d)?null:d;}
-  var s=String(v).trim();
-  var m=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
-  if(m){var d2=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d2)?null:d2;}
-  m=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})$/);
-  if(m){var yr=+m[3];if(yr<100)yr+=2000;var d3=new Date(yr,+m[2]-1,+m[1]);return isNaN(d3)?null:d3;}
-  return null;
-}
+function parseMetaDate(v){if(!v)return null;if(typeof v==='number'){var d=new Date(Math.round((v-25569)*86400*1000));return isNaN(d)?null:d;}var s=String(v).trim();var m=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);if(m){var d2=new Date(+m[1],+m[2]-1,+m[3]);return isNaN(d2)?null:d2;}m=s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})$/);if(m){var yr=+m[3];if(yr<100)yr+=2000;var d3=new Date(yr,+m[2]-1,+m[1]);return isNaN(d3)?null:d3;}return null;}
 function fmtDateBR(d){if(!d)return '';return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
 function extractDateFromName(name){var m=(name||'').match(/(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);if(!m)return null;var yr=+m[3];if(yr<100)yr+=2000;var d=new Date(yr,+m[2]-1,+m[1]);return isNaN(d.getTime())?null:d;}
 function getIdx(headers,kws){var i=headers.findIndex(function(h){return kws.some(function(k){return h===k;});});if(i>=0)return i;return headers.findIndex(function(h){return kws.some(function(k){return h.includes(k);});});}
-
-function levenshtein(a,b){
-  var m=a.length,n=b.length;
-  var d=[];for(var i=0;i<=m;i++){d[i]=[];for(var j=0;j<=n;j++)d[i][j]=0;}
-  for(var i=0;i<=m;i++)d[i][0]=i;
-  for(var j=0;j<=n;j++)d[0][j]=j;
-  for(var i=1;i<=m;i++)for(var j=1;j<=n;j++){
-    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
-  }
-  return d[m][n];
-}
-function fuzzyMatch(word,targets,maxDist){
-  var w=word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  for(var t=0;t<targets.length;t++){
-    if(w===targets[t])return true;
-    if(w.length>=3&&targets[t].length>=3&&levenshtein(w,targets[t])<=maxDist)return true;
-  }
-  return false;
-}
-
-function detectObjective(campName,format){
-  var n=(campName||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  var isVideo=/reels|reel|video|vídeo/i.test(format||'');
-  if(isVideo)return 'Reels';
-  var hasClique=/CLIQUE\s*(NO\s*)?LINK/.test(n);
-  var words=n.split(/[\s\-–_]+/);
-  var hasWhats=words.some(function(w){return fuzzyMatch(w,['whats','whatsapp','wapp'],1);});
-  var hasTraf=words.some(function(w){return fuzzyMatch(w,['traf','trafego'],1);});
-  var hasEng=words.some(function(w){return fuzzyMatch(w,['eng','engajamento'],2);});
-  var hasAlc=words.some(function(w){return fuzzyMatch(w,['alc','alcance','al'],1);});
-  var hasViews=words.some(function(w){return fuzzyMatch(w,['views','visualizacao','thruplay'],2);});
-  if(hasWhats&&hasClique)return 'ConvLink';
-  if(hasWhats)return 'Conversas';
-  if(hasTraf&&hasClique)return 'ConvLink';
-  if(hasTraf)return 'Conversas';
-  if(hasEng&&hasClique)return 'EngLink';
-  if(hasEng)return 'Engajamento';
-  if(hasAlc)return 'Alcance';
-  if(hasViews)return 'Reels';
-  return 'indefinido';
-}
-
+function levenshtein(a,b){var m=a.length,n=b.length;var d=[];for(var i=0;i<=m;i++){d[i]=[];for(var j=0;j<=n;j++)d[i][j]=0;}for(var i=0;i<=m;i++)d[i][0]=i;for(var j=0;j<=n;j++)d[0][j]=j;for(var i=1;i<=m;i++)for(var j=1;j<=n;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));}return d[m][n];}
+function fuzzyMatch(word,targets,maxDist){var w=word.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(var t=0;t<targets.length;t++){if(w===targets[t])return true;if(w.length>=3&&targets[t].length>=3&&levenshtein(w,targets[t])<=maxDist)return true;}return false;}
+function detectObjective(campName,format){var n=(campName||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/reels|reel|video|vídeo/i.test(format||''))return 'Reels';var hasClique=/CLIQUE\s*(NO\s*)?LINK/.test(n);var words=n.split(/[\s\-–_]+/);var hasWhats=words.some(function(w){return fuzzyMatch(w,['whats','whatsapp','wapp'],1);});var hasTraf=words.some(function(w){return fuzzyMatch(w,['traf','trafego'],1);});var hasEng=words.some(function(w){return fuzzyMatch(w,['eng','engajamento'],2);});var hasAlc=words.some(function(w){return fuzzyMatch(w,['alc','alcance','al'],1);});var hasViews=words.some(function(w){return fuzzyMatch(w,['views','visualizacao','thruplay'],2);});if(hasWhats&&hasClique)return 'ConvLink';if(hasWhats)return 'Conversas';if(hasTraf&&hasClique)return 'ConvLink';if(hasTraf)return 'Conversas';if(hasEng&&hasClique)return 'EngLink';if(hasEng)return 'Engajamento';if(hasAlc)return 'Alcance';if(hasViews)return 'Reels';return 'indefinido';}
 var FORMAT_KWS=['reels','reel','panfleto','carrossel','carrosel','post','vídeo','video','tabloide','virtual'];
-function detectFormat(campName,adName){
-  var sources=[campName,adName].filter(Boolean).map(function(s){return s.toLowerCase();});
-  for(var si=0;si<sources.length;si++){var src=sources[si];
-    for(var ki=0;ki<FORMAT_KWS.length;ki++){var kw=FORMAT_KWS[ki];
-      if(src.includes(kw)){
-        if(kw==='reel'||kw==='reels')return 'Reels';
-        if(kw==='carrossel'||kw==='carrosel')return 'Carrossel';
-        if(kw==='video'||kw==='vídeo')return 'Vídeo';
-        return kw.charAt(0).toUpperCase()+kw.slice(1);
-      }
-    }
-  }
-  return '-';
-}
-
+function detectFormat(campName,adName){var sources=[campName,adName].filter(Boolean).map(function(s){return s.toLowerCase();});for(var si=0;si<sources.length;si++){var src=sources[si];for(var ki=0;ki<FORMAT_KWS.length;ki++){var kw=FORMAT_KWS[ki];if(src.includes(kw)){if(kw==='reel'||kw==='reels')return'Reels';if(kw==='carrossel'||kw==='carrosel')return'Carrossel';if(kw==='video'||kw==='vídeo')return'Vídeo';return kw.charAt(0).toUpperCase()+kw.slice(1);}}}return'-';}
 var OBJ_LABELS={Alcance:'Alcance',Engajamento:'Engajamento',EngLink:'Engajamento + Link',Conversas:'Conversas (WhatsApp)',ConvLink:'WhatsApp + Link',Reels:'Reels/Vídeo (ThruPlay)',indefinido:'⚠ Não detectado'};
 var OBJ_BADGE={Alcance:'badge-alc',Engajamento:'badge-eng',EngLink:'badge-eng-link',Conversas:'badge-conv',ConvLink:'badge-conv-link',Reels:'badge-views',indefinido:'badge-unknown'};
 var OBJ_OPTIONS=['Alcance','Engajamento','EngLink','Conversas','ConvLink','Reels'];
 function objPriority(o){return{Alcance:1,Engajamento:2,EngLink:3,Conversas:4,ConvLink:5,Reels:6}[o]||7;}
+function parseExcel(wb){var ws=wb.Sheets[wb.SheetNames[0]];var rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,dateNF:'dd/mm/yyyy'});if(!rows.length)throw new Error('Arquivo vazio.');var headers=rows[0].map(function(h){return String(h||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');});
+var iCN=getIdx(headers,['nome da campanha','campaign name']);var iAN=getIdx(headers,['nome do anuncio','ad name','nome do conjunto']);var iDS=getIdx(headers,['inicio dos relatorios','reporting starts','data de inicio']);var iB=getIdx(headers,['orcamento da campanha','campaign budget','orcamento','investimento']);var iS=getIdx(headers,['valor usado (brl)','valor usado','amount spent','valor gasto']);var iCPM=getIdx(headers,['cpm (custo por 1.000 impressoes)','cpm','custo por 1.000 impressoes']);var iIm=getIdx(headers,['impressoes','impressions']);var iR=getIdx(headers,['alcance','reach']);var iRes=getIdx(headers,['resultados','results','result']);var iEP=getIdx(headers,['engajamentos com o post','post engagements']);var iTC=getIdx(headers,['custo por thruplay','cost per thruplay']);var iCPR=getIdx(headers,['custo por resultado','cost per result']);var iCE=getIdx(headers,['custo por engajamento com o post','cost per post engagement','custo por interacao']);var iCC=getIdx(headers,['custo por conversa por mensagem iniciada','cost per messaging conversation started']);var iLC=getIdx(headers,['cliques no link','link clicks']);var iCPC=getIdx(headers,['cpc (custo por clique no link)','cpc (custo por clique)','custo por clique no link','cpc']);
+var data=[];for(var i=1;i<rows.length;i++){var row=rows[i];if(!row||!row.length)continue;var g=function(idx){return(idx>=0&&idx<row.length)?row[idx]:undefined;};var nameRaw=g(iCN);if(!nameRaw)continue;var name=String(nameRaw).trim();if(!name)continue;var adName=String(g(iAN)||'').trim();var format=detectFormat(name,adName);var objective=detectObjective(name,format);var dateFromName=extractDateFromName(name);var dStart=parseMetaDate(g(iDS));var validity='';if(dateFromName)validity=fmtDateBR(dateFromName)+' –';else if(dStart)validity=fmtDateBR(dStart)+' –';var sortDate=dateFromName||dStart;var spent=parseCurrency(g(iS));var budget=parseCurrency(g(iB));var impr=parseNum(g(iIm));var reach=parseNum(g(iR));var results=parseNum(g(iRes));var links=parseNum(g(iLC));var eng=parseNum(g(iEP));if(!eng&&results>0)eng=results;
+var cpm=parseCurrency(g(iCPM));if(!cpm&&impr>0&&spent>0)cpm=(spent/impr)*1000;var cpc=parseCurrency(g(iCPC));if(!cpc&&links>0&&spent>0)cpc=spent/links;var cThru=parseCurrency(g(iTC));if(!cThru){var c1=parseCurrency(g(iCPR));if(c1>0)cThru=c1;else if(results>0&&spent>0)cThru=spent/results;}var cInt=parseCurrency(g(iCE));if(!cInt){var c2=parseCurrency(g(iCPR));if(c2>0)cInt=c2;else if(eng>0&&spent>0)cInt=spent/eng;}var cConv=parseCurrency(g(iCC));if(!cConv){var c3=parseCurrency(g(iCPR));if(c3>0)cConv=c3;else if(results>0&&spent>0)cConv=spent/results;}
+data.push({name:name,format:format,objective:objective,validity:validity,sortDate:sortDate,budget:budget,spent:spent,cpm:cpm,cpc:cpc,cThru:cThru,cInt:cInt,cConv:cConv,reach:reach,impr:impr,views:results,eng:eng,conv:results,links:links});}
+data.sort(function(a,b){var da=extractDateFromName(a.name),db=extractDateFromName(b.name);var ta=da?da.getTime():(a.sortDate?a.sortDate.getTime():0);var tb=db?db.getTime():(b.sortDate?b.sortDate.getTime():0);if(ta!==tb)return ta-tb;return objPriority(a.objective)-objPriority(b.objective);});return data;}
 
-function parseExcel(wb){
-  var ws=wb.Sheets[wb.SheetNames[0]];
-  var rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,dateNF:'dd/mm/yyyy'});
-  if(!rows.length)throw new Error('Arquivo vazio.');
-  var headers=rows[0].map(function(h){return String(h||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');});
-  var iCampName=getIdx(headers,['nome da campanha','campaign name']);
-  var iAdName=getIdx(headers,['nome do anuncio','ad name','nome do conjunto']);
-  var iDateStart=getIdx(headers,['inicio dos relatorios','reporting starts','data de inicio']);
-  var iBudget=getIdx(headers,['orcamento da campanha','campaign budget','orcamento','investimento']);
-  var iSpent=getIdx(headers,['valor usado (brl)','valor usado','amount spent','valor gasto']);
-  var iCPM=getIdx(headers,['cpm (custo por 1.000 impressoes)','cpm','custo por 1.000 impressoes']);
-  var iImpr=getIdx(headers,['impressoes','impressions']);
-  var iReach=getIdx(headers,['alcance','reach']);
-  var iResults=getIdx(headers,['resultados','results','result']);
-  var iEngPost=getIdx(headers,['engajamentos com o post','post engagements']);
-  var iThruCost=getIdx(headers,['custo por thruplay','cost per thruplay']);
-  var iCPR=getIdx(headers,['custo por resultado','cost per result']);
-  var iCPEng=getIdx(headers,['custo por engajamento com o post','cost per post engagement','custo por interacao']);
-  var iCPConv=getIdx(headers,['custo por conversa por mensagem iniciada','cost per messaging conversation started']);
-  var iLinkClk=getIdx(headers,['cliques no link','link clicks']);
-  var iCPC=getIdx(headers,['cpc (custo por clique no link)','cpc (custo por clique)','custo por clique no link','cpc']);
-  var data=[];
-  for(var i=1;i<rows.length;i++){
-    var row=rows[i];if(!row||!row.length)continue;
-    var g=function(idx){return(idx>=0&&idx<row.length)?row[idx]:undefined;};
-    var nameRaw=g(iCampName);if(!nameRaw)continue;
-    var name=String(nameRaw).trim();if(!name)continue;
-    var adName=String(g(iAdName)||'').trim();
-    var format=detectFormat(name,adName);
-    var objective=detectObjective(name,format);
-    var dateFromName=extractDateFromName(name);
-    var dStart=parseMetaDate(g(iDateStart));
-    var validity='';
-    if(dateFromName)validity=fmtDateBR(dateFromName)+' –';
-    else if(dStart)validity=fmtDateBR(dStart)+' –';
-    var sortDate=dateFromName||dStart;
-    var spent=parseCurrency(g(iSpent));
-    var budget=parseCurrency(g(iBudget));
-    var impr=parseNum(g(iImpr));
-    var reach=parseNum(g(iReach));
-    var results=parseNum(g(iResults));
-    var links=parseNum(g(iLinkClk));
-    var eng=parseNum(g(iEngPost));
-    if(!eng&&results>0)eng=results;
-    var cpm=parseCurrency(g(iCPM));
-    if(!cpm&&impr>0&&spent>0)cpm=(spent/impr)*1000;
-    var cpc=parseCurrency(g(iCPC));
-    if(!cpc&&links>0&&spent>0)cpc=spent/links;
-    var cThru=parseCurrency(g(iThruCost));
-    if(!cThru){var cpr1=parseCurrency(g(iCPR));if(cpr1>0)cThru=cpr1;else if(results>0&&spent>0)cThru=spent/results;}
-    var cInt=parseCurrency(g(iCPEng));
-    if(!cInt){var cpr2=parseCurrency(g(iCPR));if(cpr2>0)cInt=cpr2;else if(eng>0&&spent>0)cInt=spent/eng;}
-    var cConv=parseCurrency(g(iCPConv));
-    if(!cConv){var cpr3=parseCurrency(g(iCPR));if(cpr3>0)cConv=cpr3;else if(results>0&&spent>0)cConv=spent/results;}
-    data.push({name:name,format:format,objective:objective,validity:validity,sortDate:sortDate,budget:budget,spent:spent,cpm:cpm,cpc:cpc,cThru:cThru,cInt:cInt,cConv:cConv,reach:reach,impr:impr,views:results,eng:eng,conv:results,links:links});
-  }
-  data.sort(function(a,b){
-    var da=extractDateFromName(a.name),db=extractDateFromName(b.name);
-    var ta=da?da.getTime():(a.sortDate?a.sortDate.getTime():0);
-    var tb=db?db.getTime():(b.sortDate?b.sortDate.getTime():0);
-    if(ta!==tb)return ta-tb;
-    return objPriority(a.objective)-objPriority(b.objective);
-  });
-  return data;
-}
-
-function handleFile(e){
-  var file=e.target.files[0];if(!file)return;
-  originalFileName=file.name;
-  var reader=new FileReader();
-  reader.onload=function(ev){
-    try{
-      var wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});
-      var data=parseExcel(wb);
-      if(!data.length){showError('Nenhuma campanha encontrada.');return;}
-      campaignsData=data;
-      var info=parseFileName(originalFileName);
-      document.getElementById('clienteName').textContent=info.cliente;
-      showReview();
-    }catch(err){console.error(err);showError('Erro ao processar. Verifique se é um .xlsx válido do Meta Ads.');}
-  };
-  reader.readAsArrayBuffer(file);e.target.value='';
-}
+function handleFile(e){var file=e.target.files[0];if(!file)return;originalFileName=file.name;var reader=new FileReader();reader.onload=function(ev){try{var wb=XLSX.read(ev.target.result,{type:'array',cellDates:true,dateNF:'dd/mm/yyyy'});var data=parseExcel(wb);if(!data.length){showError('Nenhuma campanha encontrada.');return;}campaignsData=data;var info=parseFileName(originalFileName);document.getElementById('clienteName').textContent=info.cliente;showReview();}catch(err){console.error(err);showError('Erro ao processar.');}};reader.readAsArrayBuffer(file);e.target.value='';}
 function showError(msg){document.getElementById('errorText').textContent=msg;document.getElementById('errorMsg').style.display='flex';}
+function showReview(){document.getElementById('uploadArea').style.display='none';document.getElementById('reviewArea').style.display='block';var tbody=document.getElementById('reviewBody');tbody.innerHTML='';for(var i=0;i<campaignsData.length;i++){var r=campaignsData[i];var opts='';for(var oi=0;oi<OBJ_OPTIONS.length;oi++){var opt=OBJ_OPTIONS[oi];opts+='<option value="'+opt+'" '+(opt===r.objective?'selected':'')+'>'+OBJ_LABELS[opt]+'</option>';}tbody.innerHTML+='<tr><td class="review-name">'+r.name+'</td><td class="review-format">'+r.format+'</td><td><span class="badge '+(OBJ_BADGE[r.objective]||'badge-unknown')+'" id="badge-'+i+'">'+(OBJ_LABELS[r.objective]||r.objective)+'</span></td><td><select class="obj-select" data-idx="'+i+'" onchange="updateObjective(this)">'+opts+'</select></td></tr>';}updateStats();}
+function updateObjective(sel){var i=parseInt(sel.dataset.idx);var o=sel.value;campaignsData[i].objective=o;var b=document.getElementById('badge-'+i);b.className='badge '+(OBJ_BADGE[o]||'badge-unknown');b.textContent=OBJ_LABELS[o]||o;updateStats();}
+function updateStats(){var c={};for(var i=0;i<campaignsData.length;i++){var obj=campaignsData[i].objective;c[obj]=(c[obj]||0)+1;}var el=document.getElementById('reviewStats');el.innerHTML='';for(var key in c){el.innerHTML+='<div class="stat-chip '+(OBJ_BADGE[key]||'badge-unknown')+'">'+(OBJ_LABELS[key]||key)+': '+c[key]+'</div>';}}
 
-function showReview(){
-  document.getElementById('uploadArea').style.display='none';
-  document.getElementById('reviewArea').style.display='block';
-  var tbody=document.getElementById('reviewBody');
-  tbody.innerHTML='';
-  for(var i=0;i<campaignsData.length;i++){
-    var r=campaignsData[i];
-    var options='';
-    for(var oi=0;oi<OBJ_OPTIONS.length;oi++){
-      var opt=OBJ_OPTIONS[oi];
-      options+='<option value="'+opt+'" '+(opt===r.objective?'selected':'')+'>'+OBJ_LABELS[opt]+'</option>';
-    }
-    tbody.innerHTML+='<tr><td class="review-name">'+r.name+'</td><td class="review-format">'+r.format+'</td><td><span class="badge '+(OBJ_BADGE[r.objective]||'badge-unknown')+'" id="badge-'+i+'">'+(OBJ_LABELS[r.objective]||r.objective)+'</span></td><td><select class="obj-select" data-idx="'+i+'" onchange="updateObjective(this)">'+options+'</select></td></tr>';
-  }
-  updateStats();
-}
+// CAPA
+function goToCapa(){var hasUndef=campaignsData.some(function(r){return r.objective==='indefinido';});if(hasUndef&&!confirm('Existem campanhas sem objetivo definido. Continuar?'))return;document.getElementById('reviewArea').style.display='none';document.getElementById('capaArea').style.display='block';var info=parseFileName(originalFileName);document.getElementById('capaClienteName').textContent=info.cliente+' - '+(info.mes||'')+' '+(info.ano||'');}
+function backToReview(){document.getElementById('capaArea').style.display='none';document.getElementById('reviewArea').style.display='block';}
+function collectCapaData(){return{fb:{seguidores:document.getElementById('fb_seguidores').value,segAnterior:document.getElementById('fb_seg_anterior').value,homens:document.getElementById('fb_homens').value,mulheres:document.getElementById('fb_mulheres').value,faixa:document.getElementById('fb_faixa').value,alcancadas:document.getElementById('fb_alcancadas').value,visitas:document.getElementById('fb_visitas').value},ig:{seguidores:document.getElementById('ig_seguidores').value,segAnterior:document.getElementById('ig_seg_anterior').value,homens:document.getElementById('ig_homens').value,mulheres:document.getElementById('ig_mulheres').value,faixa:document.getElementById('ig_faixa').value,alcancadas:document.getElementById('ig_alcancadas').value,visitas:document.getElementById('ig_visitas').value}};}
+function confirmAndRender(){capaData=collectCapaData();document.getElementById('capaArea').style.display='none';renderReport(campaignsData);}
 
-function updateObjective(sel){
-  var i=parseInt(sel.dataset.idx);var o=sel.value;
-  campaignsData[i].objective=o;
-  var b=document.getElementById('badge-'+i);
-  b.className='badge '+(OBJ_BADGE[o]||'badge-unknown');b.textContent=OBJ_LABELS[o]||o;
-  updateStats();
-}
-function updateStats(){
-  var c={};for(var i=0;i<campaignsData.length;i++){var obj=campaignsData[i].objective;c[obj]=(c[obj]||0)+1;}
-  var el=document.getElementById('reviewStats');el.innerHTML='';
-  for(var key in c){el.innerHTML+='<div class="stat-chip '+(OBJ_BADGE[key]||'badge-unknown')+'">'+(OBJ_LABELS[key]||key)+': '+c[key]+'</div>';}
-}
-function confirmAndRender(){
-  var hasUndef=campaignsData.some(function(r){return r.objective==='indefinido';});
-  if(hasUndef&&!confirm('Existem campanhas sem objetivo definido. Continuar?'))return;
-  document.getElementById('reviewArea').style.display='none';
-  renderReport(campaignsData);
-}
+function renderReport(data){var tbody=document.getElementById('tableBody');tbody.innerHTML='';var lastDateKey='';for(var idx=0;idx<data.length;idx++){var r=data[idx];var o=r.objective;var isEngFmt=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);var curDate=extractDateFromName(r.name);var curDateKey=curDate?curDate.getTime():'none';if(idx>0&&curDateKey!==lastDateKey){tbody.innerHTML+='<tr><td colspan="17" style="background:#fff;border:none;height:16px"></td></tr>';}lastDateKey=curDateKey;
+var colReach=(o==='Alcance'||o==='Reels')?fmtNum(r.reach):'-';var colEng=(o==='Engajamento'&&isEngFmt)?fmtNum(r.eng):'-';var colLinks=(o==='EngLink'||o==='ConvLink')?fmtNum(r.links):'-';var colViews=(o==='Reels')?fmtNum(r.views):'-';var colCPM=(o==='Alcance')?fmtBRL(r.cpm):'-';var colCPC=(o==='EngLink'||o==='ConvLink')?fmtBRL(r.cpc):'-';var colThru=(o==='Reels')?fmtBRL(r.cThru):'-';var colCInt=(o==='Engajamento'&&isEngFmt)?fmtBRL(r.cInt):'-';var colCConv=(o==='Conversas')?fmtBRL(r.cConv):'-';var colConv=(o==='Conversas')?fmtNum(r.conv):'-';
+tbody.innerHTML+='<tr><td>'+r.name+'</td><td>'+r.format+'</td><td>'+(r.validity||'-')+'</td><td>'+fmtBRL(r.budget)+'</td><td>'+fmtBRL(r.spent)+'</td><td>'+colReach+'</td><td>'+colEng+'</td><td>'+colLinks+'</td><td>'+colViews+'</td><td>'+colCPM+'</td><td>'+colCPC+'</td><td>'+colThru+'</td><td>'+colCInt+'</td><td>'+colCConv+'</td><td>-</td><td>-</td><td>'+colConv+'</td></tr>';}
+document.getElementById('reportArea').style.display='block';document.getElementById('headerBtns').style.display='flex';var info=parseFileName(originalFileName);document.getElementById('clienteNameReport').textContent=info.cliente;}
+function resetView(){campaignsData=[];document.getElementById('uploadArea').style.display='block';document.getElementById('reviewArea').style.display='none';document.getElementById('capaArea').style.display='none';document.getElementById('reportArea').style.display='none';document.getElementById('headerBtns').style.display='none';document.getElementById('errorMsg').style.display='none';}
+function parseFileName(filename){var base=filename.replace(/\.[^.]+$/,'').trim();var MESES={'01':'Janeiro','02':'Fevereiro','03':'Março','04':'Abril','05':'Maio','06':'Junho','07':'Julho','08':'Agosto','09':'Setembro','10':'Outubro','11':'Novembro','12':'Dezembro','jan':'Janeiro','fev':'Fevereiro','mar':'Março','abr':'Abril','mai':'Maio','jun':'Junho','jul':'Julho','ago':'Agosto','set':'Setembro','out':'Outubro','nov':'Novembro','dez':'Dezembro','janeiro':'Janeiro','fevereiro':'Fevereiro','março':'Março','marco':'Março','abril':'Abril','maio':'Maio','junho':'Junho','julho':'Julho','agosto':'Agosto','setembro':'Setembro','outubro':'Outubro','novembro':'Novembro','dezembro':'Dezembro'};var parts=base.split(/\s*[-–]\s*/).map(function(p){return p.trim();}).filter(Boolean);var cliente='',mes='',ano='';parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/^\d{4}$/.test(p)){ano=p;return;}if(MESES[pl]){mes=MESES[pl];return;}if(MESES[p.toLowerCase()]){mes=MESES[p.toLowerCase()];return;}if(!cliente)cliente=p;});if(!mes||!ano)parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(var k in MESES){if(pl.includes(k)&&k.length>2){mes=MESES[k];break;}}var ym=p.match(/\b(20\d{2})\b/);if(ym)ano=ym[1];});if(!cliente)cliente=parts[0]||'Cliente';if(!ano)ano=new Date().getFullYear().toString();return{cliente:cliente,mes:mes,ano:ano};}
 
-/*
-  NOVA ORDEM DAS COLUNAS (Modelo 10):
-  A  Nome da Ação
-  B  Formato
-  C  Validade
-  D  Investimento
-  E  Valor Gasto
-  F  Alcance           → Alcance, Reels
-  G  Engajamento       → Engajamento (Panfleto/Carrossel/Virtual/Tabloide/Post)
-  H  Cliques no Link   → EngLink, ConvLink
-  I  Visualização      → Reels (valor de Resultados do Meta)
-  J  Custo por 1.000   → Alcance
-  K  Custo por Cliques → EngLink, ConvLink
-  L  Custo por ThruPlay→ Reels
-  M  Custo por Interação→ Engajamento
-  N  Filtro
-  O  Cidade
-  P  Conversas Iniciadas→ Conversas
-*/
+async function exportExcel(){if(!campaignsData.length)return;var btn=document.getElementById('btnExcel');btn.textContent='Gerando...';btn.disabled=true;
+var C={orange:'FFFF9900',gold:'FFFBBC04',gray1:'FFB7B7B7',white:'FFFFFFFF',black:'FF000000',dark:'FF222526',cream:'FFF5F3F0'};var bk={style:'thin',color:{argb:C.black}};var bAll={top:bk,bottom:bk,left:bk,right:bk};var fl=function(a){return{type:'pattern',pattern:'solid',fgColor:{argb:a}};};var fn=function(b,s,a,n){return{bold:!!b,size:s||10,color:{argb:a||C.black},name:n||'Arial'};};var al=function(h,v,w){return{horizontal:h||'center',vertical:v||'top',wrapText:!!w};};var BRL='R$\\ #,##0.00',NUM='#,##0';
+var wb=new ExcelJS.Workbook();
+// ═══ ABA 1: CAPA ═══
+var wsCapa=wb.addWorksheet('Capa');var info=parseFileName(originalFileName);var titulo=info.cliente+' - '+(info.mes||'')+' - '+(info.ano||'');
+wsCapa.columns=[{width:6},{width:8},{width:14},{width:16},{width:16},{width:16},{width:14},{width:3},{width:18},{width:16},{width:16},{width:16},{width:14},{width:12}];
+// Row 1-2: title
+wsCapa.addRow([]);wsCapa.addRow([titulo]);wsCapa.mergeCells('A2:N2');var c2=wsCapa.getCell('A2');c2.fill=fl(C.gold);c2.font=fn(true,24,C.cream,'Montserrat');c2.alignment=al('center','top');
+// Rows 3-8: spacing
+for(var ri=3;ri<=8;ri++){var rw=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)rw.getCell(ci).fill=fl(C.gold);}
+// Row 9: empty
+wsCapa.addRow([]);wsCapa.getRow(9).eachCell(function(c){c.fill=fl(C.gold);});
+// Row 10-11: Total seguidores
+var r10=wsCapa.addRow(['','Total de '+capaData.fb.seguidores+' seguidores','','','','','','','Total de '+capaData.ig.seguidores+' seguidores']);wsCapa.mergeCells('B10:G11');wsCapa.mergeCells('I10:N11');var cFb10=wsCapa.getCell('B10');cFb10.fill=fl(C.gold);cFb10.font=fn(false,22,C.black,'Montserrat');cFb10.alignment=al('center','middle');var cIg10=wsCapa.getCell('I10');cIg10.fill=fl(C.gold);cIg10.font=fn(false,22,C.black,'Montserrat');cIg10.alignment=al('center','middle');
+wsCapa.addRow([]);
+// Row 12-13: Seg anterior
+var r12=wsCapa.addRow(['','',capaData.fb.segAnterior+' seguidores no mês anterior','','','','','','',capaData.ig.segAnterior+' seguidores no mês anterior']);wsCapa.mergeCells('C12:G13');wsCapa.mergeCells('J12:M13');var cFb12=wsCapa.getCell('C12');cFb12.fill=fl(C.gold);cFb12.font=fn(true,16,C.black,'Montserrat');cFb12.alignment=al('center','middle');var cIg12=wsCapa.getCell('J12');cIg12.fill=fl(C.gold);cIg12.font=fn(true,16,C.black,'Montserrat');cIg12.alignment=al('center','middle');
+wsCapa.addRow([]);
+// Rows 14-18: spacing + gender
+for(var ri=14;ri<=15;ri++){var rw=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)rw.getCell(ci).fill=fl(C.gold);}
+// Row 16-18: Homens
+var r16=wsCapa.addRow(['','','','',capaData.fb.homens+' Homens','','','','','',capaData.ig.homens+' Homens']);wsCapa.mergeCells('E16:G18');wsCapa.mergeCells('K16:M18');var cFbH=wsCapa.getCell('E16');cFbH.fill=fl(C.gold);cFbH.font=fn(true,27,C.black,'Montserrat');cFbH.alignment=al('center','middle');var cIgH=wsCapa.getCell('K16');cIgH.fill=fl(C.gold);cIgH.font=fn(true,27,C.black,'Montserrat');cIgH.alignment=al('center','middle');
+wsCapa.addRow([]);wsCapa.addRow([]);
+// Row 19-20: spacing
+var r19=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)r19.getCell(ci).fill=fl(C.gold);
+// Row 20
+wsCapa.addRow([]);
+// Row 21-23: Mulheres
+var r21=wsCapa.addRow(['','','','',capaData.fb.mulheres+' Mulheres','','','','','',capaData.ig.mulheres+' Mulheres']);wsCapa.mergeCells('E21:G23');wsCapa.mergeCells('K21:M23');var cFbM=wsCapa.getCell('E21');cFbM.fill=fl(C.gold);cFbM.font=fn(true,27,C.black,'Montserrat');cFbM.alignment=al('center','middle');var cIgM=wsCapa.getCell('K21');cIgM.fill=fl(C.gold);cIgM.font=fn(true,27,C.black,'Montserrat');cIgM.alignment=al('center','middle');
+wsCapa.addRow([]);wsCapa.addRow([]);
+// Row 24-25: spacing
+for(var ri=24;ri<=25;ri++){var rw=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)rw.getCell(ci).fill=fl(C.gold);}
+// Row 26-29: icons row (placeholder)
+for(var ri=26;ri<=29;ri++){var rw=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)rw.getCell(ci).fill=fl(C.gold);}
+// Row 30: spacing
+var r30=wsCapa.addRow([]);for(var ci=1;ci<=14;ci++)r30.getCell(ci).fill=fl(C.gold);
+// Row 31-32: Faixa / Alcance / Visitas
+var r31=wsCapa.addRow(['','',capaData.fb.faixa,'',capaData.fb.alcancadas,'',capaData.fb.visitas,'','',capaData.ig.faixa,'',capaData.ig.alcancadas,'',capaData.ig.visitas]);wsCapa.mergeCells('B31:C32');wsCapa.mergeCells('D31:E32');wsCapa.mergeCells('F31:G32');wsCapa.mergeCells('I31:J32');wsCapa.mergeCells('K31:L32');wsCapa.mergeCells('M31:N32');
+['B31','D31','F31','I31','K31','M31'].forEach(function(ref){var c=wsCapa.getCell(ref);c.fill=fl(C.gold);c.font=fn(true,28,C.black,'Montserrat');c.alignment=al('center','middle');});
+wsCapa.addRow([]);
+// Row 33-34: Labels
+var r33=wsCapa.addRow(['','','FAIXA ETÁRIA','','CONTAS ALCANÇADAS','','VISITAS À PÁGINA','','','FAIXA ETÁRIA','','CONTAS ALCANÇADAS','','VISITAS AO PERFIL']);wsCapa.mergeCells('B33:C34');wsCapa.mergeCells('D33:E34');wsCapa.mergeCells('F33:G34');wsCapa.mergeCells('I33:J34');wsCapa.mergeCells('K33:L34');wsCapa.mergeCells('M33:N34');
+['B33','D33','F33','I33','K33','M33'].forEach(function(ref){var c=wsCapa.getCell(ref);c.fill=fl(C.gold);c.font=fn(false,15,C.black,'Montserrat');c.alignment=al('center','middle',true);});
+wsCapa.addRow([]);
+// Fill remaining with gold
+for(var ri=1;ri<=wsCapa.rowCount;ri++){var row=wsCapa.getRow(ri);for(var ci=1;ci<=14;ci++){if(!row.getCell(ci).fill||!row.getCell(ci).fill.fgColor)row.getCell(ci).fill=fl(C.gold);}}
 
-function renderReport(data){
-  var tbody=document.getElementById('tableBody');
-  tbody.innerHTML='';
-  var lastDateKey='';
-
-  for(var idx=0;idx<data.length;idx++){
-    var r=data[idx];
-    var o=r.objective;
-    var isEngFmt=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);
-
-    var curDate=extractDateFromName(r.name);
-    var curDateKey=curDate?curDate.getTime():'none';
-    if(idx>0&&curDateKey!==lastDateKey){
-      tbody.innerHTML+='<tr><td colspan="17" style="background:#fff;border:none;height:16px"></td></tr>';
-    }
-    lastDateKey=curDateKey;
-
-    var colReach = (o==='Alcance'||o==='Reels') ? fmtNum(r.reach) : '-';
-    var colEng   = (o==='Engajamento'&&isEngFmt) ? fmtNum(r.eng) : '-';
-    var colLinks = (o==='EngLink'||o==='ConvLink') ? fmtNum(r.links) : '-';
-    var colViews = (o==='Reels') ? fmtNum(r.views) : '-';
-    var colCPM   = (o==='Alcance') ? fmtBRL(r.cpm) : '-';
-    var colCPC   = (o==='EngLink'||o==='ConvLink') ? fmtBRL(r.cpc) : '-';
-    var colThru  = (o==='Reels') ? fmtBRL(r.cThru) : '-';
-    var colCInt  = (o==='Engajamento'&&isEngFmt) ? fmtBRL(r.cInt) : '-';
-    var colCConv = (o==='Conversas') ? fmtBRL(r.cConv) : '-';
-    var colConv  = (o==='Conversas') ? fmtNum(r.conv) : '-';
-
-    tbody.innerHTML+='<tr>'+
-      '<td>'+r.name+'</td>'+
-      '<td>'+r.format+'</td>'+
-      '<td>'+(r.validity||'-')+'</td>'+
-      '<td>'+fmtBRL(r.budget)+'</td>'+
-      '<td>'+fmtBRL(r.spent)+'</td>'+
-      '<td>'+colReach+'</td>'+
-      '<td>'+colEng+'</td>'+
-      '<td>'+colLinks+'</td>'+
-      '<td>'+colViews+'</td>'+
-      '<td>'+colCPM+'</td>'+
-      '<td>'+colCPC+'</td>'+
-      '<td>'+colThru+'</td>'+
-      '<td>'+colCInt+'</td>'+
-      '<td>'+colCConv+'</td>'+
-      '<td>-</td>'+
-      '<td>-</td>'+
-      '<td>'+colConv+'</td>'+
-    '</tr>';
-  }
-
-  document.getElementById('reportArea').style.display='block';
-  document.getElementById('headerBtns').style.display='flex';
-  var info=parseFileName(originalFileName);
-  document.getElementById('clienteNameReport').textContent=info.cliente;
-}
-
-function resetView(){
-  campaignsData=[];
-  document.getElementById('uploadArea').style.display='block';
-  document.getElementById('reviewArea').style.display='none';
-  document.getElementById('reportArea').style.display='none';
-  document.getElementById('headerBtns').style.display='none';
-  document.getElementById('errorMsg').style.display='none';
-}
-
-function parseFileName(filename){
-  var base=filename.replace(/\.[^.]+$/,'').trim();
-  var MESES={'01':'Janeiro','02':'Fevereiro','03':'Março','04':'Abril','05':'Maio','06':'Junho','07':'Julho','08':'Agosto','09':'Setembro','10':'Outubro','11':'Novembro','12':'Dezembro','jan':'Janeiro','fev':'Fevereiro','mar':'Março','abr':'Abril','mai':'Maio','jun':'Junho','jul':'Julho','ago':'Agosto','set':'Setembro','out':'Outubro','nov':'Novembro','dez':'Dezembro','janeiro':'Janeiro','fevereiro':'Fevereiro','março':'Março','marco':'Março','abril':'Abril','maio':'Maio','junho':'Junho','julho':'Julho','agosto':'Agosto','setembro':'Setembro','outubro':'Outubro','novembro':'Novembro','dezembro':'Dezembro'};
-  var parts=base.split(/\s*[-–]\s*/).map(function(p){return p.trim();}).filter(Boolean);
-  var cliente='',mes='',ano='';
-  parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(/^\d{4}$/.test(p)){ano=p;return;}if(MESES[pl]){mes=MESES[pl];return;}if(MESES[p.toLowerCase()]){mes=MESES[p.toLowerCase()];return;}if(!cliente)cliente=p;});
-  if(!mes||!ano)parts.forEach(function(p){var pl=p.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');for(var k in MESES){if(pl.includes(k)&&k.length>2){mes=MESES[k];break;}}var ym=p.match(/\b(20\d{2})\b/);if(ym)ano=ym[1];});
-  if(!cliente)cliente=parts[0]||'Cliente';if(!ano)ano=new Date().getFullYear().toString();
-  return{cliente:cliente,mes:mes,ano:ano};
-}
-
-async function exportExcel(){
-  if(!campaignsData.length)return;
-  var btn=document.getElementById('btnExcel');
-  btn.textContent='Gerando...';btn.disabled=true;
-  var C={orange:'FFFF9900',gray1:'FFB7B7B7',white:'FFFFFFFF',black:'FF000000',dark:'FF222526'};
-  var bk={style:'thin',color:{argb:C.black}};
-  var bAll={top:bk,bottom:bk,left:bk,right:bk};
-  var fl=function(argb){return{type:'pattern',pattern:'solid',fgColor:{argb:argb}};};
-  var fn=function(bold,size,argb,name){return{bold:!!bold,size:size||10,color:{argb:argb||C.black},name:name||'Arial'};};
-  var al=function(h,v,wrap){return{horizontal:h||'center',vertical:v||'top',wrapText:!!wrap};};
-  var BRL='R$\\ #,##0.00',NUM='#,##0';
-  var wb=new ExcelJS.Workbook();
-  var ws=wb.addWorksheet('Relatório');
-  ws.columns=[{width:24},{width:14},{width:15},{width:14},{width:14},{width:13},{width:14},{width:14},{width:18},{width:20},{width:22},{width:20},{width:20},{width:20},{width:12},{width:12},{width:18}];
-
-  ws.addRow(['AÇÕES MENSAIS']);ws.mergeCells('A1:Q1');
-  var r1=ws.getCell('A1');r1.value='AÇÕES MENSAIS';r1.fill=fl(C.orange);r1.font=fn(true,15,C.white);r1.alignment=al('center','middle');r1.border={bottom:bk};ws.getRow(1).height=32;
-
-  var HDR=['NOME DA AÇÃO','FORMATO','VALIDADE','INVESTIMENTO','VALOR GASTO','ALCANCE','ENGAJAMENTO','CLIQUES NO LINK','VISUALIZAÇÃO (THRUPLAY)','CUSTO POR 1.000 PESSOAS','CUSTO POR CLIQUES NO LINK','CUSTO POR THRUPLAY','CUSTO POR INTERAÇÃO','CUSTO POR CONVERSA','FILTRO','CIDADE','CONVERSAS INICIADAS'];
-  ws.addRow(HDR);ws.getRow(2).height=20;
-  HDR.forEach(function(_,ci){var cell=ws.getRow(2).getCell(ci+1);cell.fill=fl(C.gray1);cell.font=fn(true,10,C.black,'Century Gothic');cell.alignment=al('center','middle',true);cell.border=bAll;});
-
-  var lastDateKeyXl='';
-  campaignsData.forEach(function(r){
-    var curDate=extractDateFromName(r.name);
-    var curDateKey=curDate?curDate.getTime():'none';
-    if(lastDateKeyXl!==''&&curDateKey!==lastDateKeyXl){
-      var rBlank=ws.addRow(Array(17).fill(''));rBlank.height=12;
-      for(var ci=1;ci<=17;ci++){rBlank.getCell(ci).fill=fl(C.white);rBlank.getCell(ci).border={};}
-    }
-    lastDateKeyXl=curDateKey;
-    var o=r.objective;
-    var isEngFmtXl=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);
-    var vals=[
-      r.name,r.format,r.validity||'',
-      r.budget>0?r.budget:'',r.spent>0?r.spent:'',
-      (o==='Alcance'||o==='Reels')&&r.reach>0?r.reach:'',
-      (o==='Engajamento'&&isEngFmtXl)&&r.eng>0?r.eng:'',
-      (o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',
-      o==='Reels'&&r.views>0?r.views:'',
-      o==='Alcance'&&r.cpm>0?r.cpm:'',
-      (o==='EngLink'||o==='ConvLink')&&r.cpc>0?r.cpc:'',
-      o==='Reels'&&r.cThru>0?r.cThru:'',
-      (o==='Engajamento'&&isEngFmtXl)&&r.cInt>0?r.cInt:'',
-      o==='Conversas'&&r.cConv>0?r.cConv:'',
-      '','',
-      o==='Conversas'&&r.conv>0?r.conv:'',
-    ];
-    var row=ws.addRow(vals);row.height=20;
-    vals.forEach(function(v,ci){
-      var cell=row.getCell(ci+1);cell.fill=fl(C.white);cell.font=fn(false,10,C.black);
-      cell.alignment=ci===0?al('left','top',true):al('center','top');cell.border=bAll;
-      if(typeof v==='number'){
-        if([3,4,9,10,11,12,13].includes(ci))cell.numFmt=BRL;
-        if([5,6,7,8,16].includes(ci))cell.numFmt=NUM;
-      }
-    });
-  });
-
-  // Empty row
-  var rE=ws.addRow(Array(17).fill(''));rE.height=20;
-  for(var ci=1;ci<=17;ci++){rE.getCell(ci).fill=fl(C.white);rE.getCell(ci).border={};}
-
-  // Legendas
-  var rLT=ws.addRow(['RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA']);
-  ws.mergeCells('A'+rLT.number+':I'+rLT.number);
-  var cLT=rLT.getCell(1);cLT.fill=fl(C.orange);cLT.font=fn(true,11,C.white,'Century Gothic');cLT.alignment=al('center','middle');rLT.height=20;
-
-  var legs=[
-    'Alcance: É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.',
-    'Engajamento: É o número de vezes que houve interação com a postagem de pessoas com maior probabilidade de interesse no produto ofertado. A plataforma analisa os perfis de pessoas que estejam procurando os produtos ofertados, e faz a entrega para estes perfis (sem filtro). Ou seja, a soma da quantidade de vezes que o post foi aberto, curtido, compartilhado, comentado por um público mais engajado.',
-    'Conversas iniciadas: Quantidade de conversas iniciadas no WhatsApp a partir do anúncio.',
-    'Visualização (ThruPlay): Número de vezes que o vídeo foi assistido por pelo menos 15 segundos ou até o fim, quando menor que esse tempo.',
-    'Cliques no link: Quantidade de cliques em links do anúncio para destinos externos, como site ou WhatsApp.'
-  ];
-  legs.forEach(function(txt){
-    var rL=ws.addRow([txt]);ws.mergeCells('A'+rL.number+':I'+rL.number);
-    var cL=rL.getCell(1);cL.fill=fl(C.white);cL.font=fn(false,10,C.dark);
-    cL.alignment=al('left','top',true);cL.border={bottom:bk,right:bk};rL.height=24;
-  });
-
-  // Separator
-  var rSep=ws.addRow(Array(9).fill(''));rSep.height=10;
-  for(var ci=1;ci<=9;ci++){rSep.getCell(ci).border={bottom:{style:'double',color:{argb:C.black}}};rSep.getCell(ci).fill=fl(C.white);}
-
-  // Footnote
-  var fnTxt='*Algumas colunas podem não ser preenchidas, pois variam de acordo com o tipo de impulsionamento e com as métricas disponíveis em cada campanha. Além disso, em alguns casos, a plataforma pode não utilizar toda a verba prevista, seja por limitação de público, concorrência no leilão de anúncios, baixo engajamento ou instabilidades na entrega. Por isso, o valor efetivamente considerado como consumido é o da coluna "Valor gasto".';
-  var rFn=ws.addRow([fnTxt]);ws.mergeCells('A'+rFn.number+':I'+rFn.number);
-  var cFn=rFn.getCell(1);cFn.fill=fl(C.white);cFn.font=fn(false,10,C.black,'Century Gothic');
-  cFn.alignment=al('left','top',true);cFn.border={bottom:{style:'double',color:{argb:C.black}},right:{style:'double',color:{argb:C.black}}};rFn.height=50;
-
-  try{
-    var buf=await wb.xlsx.writeBuffer();
-    var blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-    var url=URL.createObjectURL(blob);var a=document.createElement('a');
-    var info=parseFileName(originalFileName);
-    a.href=url;a.download=['Relatório de impulsionamento',info.cliente,info.mes,info.ano].filter(Boolean).join(' - ')+'.xlsx';
-    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-  }finally{
-    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel';btn.disabled=false;
-  }
-}
+// ═══ ABA 2: RELATÓRIO ═══
+var ws=wb.addWorksheet('Relatório');
+ws.columns=[{width:24},{width:14},{width:15},{width:14},{width:14},{width:13},{width:14},{width:14},{width:18},{width:20},{width:22},{width:20},{width:20},{width:20},{width:12},{width:12},{width:18}];
+ws.addRow(['AÇÕES MENSAIS']);ws.mergeCells('A1:Q1');var r1=ws.getCell('A1');r1.value='AÇÕES MENSAIS';r1.fill=fl(C.orange);r1.font=fn(true,15,C.white);r1.alignment=al('center','middle');r1.border={bottom:bk};ws.getRow(1).height=32;
+var HDR=['NOME DA AÇÃO','FORMATO','VALIDADE','INVESTIMENTO','VALOR GASTO','ALCANCE','ENGAJAMENTO','CLIQUES NO LINK','VISUALIZAÇÃO (THRUPLAY)','CUSTO POR 1.000 PESSOAS','CUSTO POR CLIQUES NO LINK','CUSTO POR THRUPLAY','CUSTO POR INTERAÇÃO','CUSTO POR CONVERSA','FILTRO','CIDADE','CONVERSAS INICIADAS'];
+ws.addRow(HDR);ws.getRow(2).height=20;HDR.forEach(function(_,ci){var cell=ws.getRow(2).getCell(ci+1);cell.fill=fl(C.gray1);cell.font=fn(true,10,C.black,'Century Gothic');cell.alignment=al('center','middle',true);cell.border=bAll;});
+var lastDateKeyXl='';campaignsData.forEach(function(r){var curDate=extractDateFromName(r.name);var curDateKey=curDate?curDate.getTime():'none';if(lastDateKeyXl!==''&&curDateKey!==lastDateKeyXl){var rBlank=ws.addRow(Array(17).fill(''));rBlank.height=12;for(var ci=1;ci<=17;ci++){rBlank.getCell(ci).fill=fl(C.white);rBlank.getCell(ci).border={};}}lastDateKeyXl=curDateKey;
+var o=r.objective;var isEF=/panfleto|carrossel|virtual|tabloide|post/i.test(r.format);var vals=[r.name,r.format,r.validity||'',r.budget>0?r.budget:'',r.spent>0?r.spent:'',(o==='Alcance'||o==='Reels')&&r.reach>0?r.reach:'',(o==='Engajamento'&&isEF)&&r.eng>0?r.eng:'',(o==='EngLink'||o==='ConvLink')&&r.links>0?r.links:'',o==='Reels'&&r.views>0?r.views:'',o==='Alcance'&&r.cpm>0?r.cpm:'',(o==='EngLink'||o==='ConvLink')&&r.cpc>0?r.cpc:'',o==='Reels'&&r.cThru>0?r.cThru:'',(o==='Engajamento'&&isEF)&&r.cInt>0?r.cInt:'',o==='Conversas'&&r.cConv>0?r.cConv:'','','',o==='Conversas'&&r.conv>0?r.conv:''];
+var row=ws.addRow(vals);row.height=20;vals.forEach(function(v,ci){var cell=row.getCell(ci+1);cell.fill=fl(C.white);cell.font=fn(false,10,C.black);cell.alignment=ci===0?al('left','top',true):al('center','top');cell.border=bAll;if(typeof v==='number'){if([3,4,9,10,11,12,13].includes(ci))cell.numFmt=BRL;if([5,6,7,8,16].includes(ci))cell.numFmt=NUM;}});});
+// Empty + Legendas
+var rE=ws.addRow(Array(17).fill(''));rE.height=20;for(var ci=1;ci<=17;ci++){rE.getCell(ci).fill=fl(C.white);rE.getCell(ci).border={};}
+var rLT=ws.addRow(['RAIO-X DOS RESULTADOS - ENTENDA O QUE CADA INDICADOR MOSTRA']);ws.mergeCells('A'+rLT.number+':I'+rLT.number);var cLT=rLT.getCell(1);cLT.fill=fl(C.orange);cLT.font=fn(true,11,C.white,'Century Gothic');cLT.alignment=al('center','middle');rLT.height=20;
+var legs=['Alcance: É o número de contas que a postagem alcançou. Ou seja, a quantidade de contas que receberam o post.','Engajamento: É o número de vezes que houve interação com a postagem de pessoas com maior probabilidade de interesse no produto ofertado. A plataforma analisa os perfis de pessoas que estejam procurando os produtos ofertados, e faz a entrega para estes perfis (sem filtro). Ou seja, a soma da quantidade de vezes que o post foi aberto, curtido, compartilhado, comentado por um público mais engajado.','Conversas iniciadas: Quantidade de conversas iniciadas no WhatsApp a partir do anúncio.','Visualização (ThruPlay): Número de vezes que o vídeo foi assistido por pelo menos 15 segundos ou até o fim, quando menor que esse tempo.','Cliques no link: Quantidade de cliques em links do anúncio para destinos externos, como site ou WhatsApp.'];
+legs.forEach(function(txt){var rL=ws.addRow([txt]);ws.mergeCells('A'+rL.number+':I'+rL.number);var cL=rL.getCell(1);cL.fill=fl(C.white);cL.font=fn(false,10,C.dark);cL.alignment=al('left','top',true);cL.border={bottom:bk,right:bk};rL.height=24;});
+var rSep=ws.addRow(Array(9).fill(''));rSep.height=10;for(var ci=1;ci<=9;ci++){rSep.getCell(ci).border={bottom:{style:'double',color:{argb:C.black}}};rSep.getCell(ci).fill=fl(C.white);}
+var fnTxt='*Algumas colunas podem não ser preenchidas, pois variam de acordo com o tipo de impulsionamento e com as métricas disponíveis em cada campanha. Além disso, em alguns casos, a plataforma pode não utilizar toda a verba prevista, seja por limitação de público, concorrência no leilão de anúncios, baixo engajamento ou instabilidades na entrega. Por isso, o valor efetivamente considerado como consumido é o da coluna "Valor gasto".';
+var rFn=ws.addRow([fnTxt]);ws.mergeCells('A'+rFn.number+':I'+rFn.number);var cFn=rFn.getCell(1);cFn.fill=fl(C.white);cFn.font=fn(false,10,C.black,'Century Gothic');cFn.alignment=al('left','top',true);cFn.border={bottom:{style:'double',color:{argb:C.black}},right:{style:'double',color:{argb:C.black}}};rFn.height=50;
+// Download
+try{var buf=await wb.xlsx.writeBuffer();var blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download=['Relatório de impulsionamento',info.cliente,info.mes,info.ano].filter(Boolean).join(' - ')+'.xlsx';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);}finally{btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> Baixar Excel';btn.disabled=false;}}
 </script>
 </body>
 </html>
